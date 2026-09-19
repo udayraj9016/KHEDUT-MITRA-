@@ -1,1831 +1,929 @@
 <!DOCTYPE html>
 <html lang="gu">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>ખેડૂત મિત્ર | ખેડૂતોનું ડિજિટલ સાથી</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Gujarati:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-:root{
-    --green:#087a3d;
-    --dark-green:#04552b;
-    --light-green:#eaf8ef;
-    --gold:#f5b82e;
-    --dark:#10251a;
-    --white:#ffffff;
-    --gray:#66736b;
-    --border:#e4ebe6;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:'Noto Sans Gujarati',sans-serif;
-    background:#f7faf8;
-    color:var(--dark);
-}
-
-/* ================= TOP BAR ================= */
-
-.topbar{
-    background:#064c29;
-    color:white;
-    min-height:40px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:0 5%;
-    font-size:14px;
-}
-
-.top-left,
-.top-right{
-    display:flex;
-    align-items:center;
-    gap:20px;
-}
-
-.topbar span{
-    display:flex;
-    align-items:center;
-    gap:6px;
-}
-
-/* ================= NAVBAR ================= */
-
-.navbar{
-    height:82px;
-    background:white;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 5%;
-    box-shadow:0 2px 15px rgba(0,0,0,.06);
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
-
-.logo{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    text-decoration:none;
-    color:var(--dark-green);
-}
-
-.logo-icon{
-    width:54px;
-    height:54px;
-    border-radius:50%;
-    background:linear-gradient(135deg,#087a3d,#14a957);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:29px;
-    box-shadow:0 6px 15px rgba(8,122,61,.2);
-}
-
-.logo-text{
-    font-size:28px;
-    font-weight:800;
-}
-
-.logo-text span{
-    color:var(--gold);
-}
-
-.menu{
-    display:flex;
-    align-items:center;
-    gap:4px;
-}
-
-.menu a{
-    text-decoration:none;
-    color:#27362d;
-    padding:12px 13px;
-    border-radius:9px;
-    font-size:15px;
-    font-weight:600;
-    transition:.3s;
-}
-
-.menu a:hover,
-.menu a.active{
-    background:var(--green);
-    color:white;
-}
-
-.nav-actions{
-    display:flex;
-    align-items:center;
-    gap:10px;
-}
-
-.search{
-    width:190px;
-    height:42px;
-    border:1px solid var(--border);
-    border-radius:10px;
-    display:flex;
-    align-items:center;
-    padding:0 10px;
-    background:#fafcfa;
-}
-
-.search input{
-    border:0;
-    outline:0;
-    background:transparent;
-    width:100%;
-    font-family:inherit;
-}
-
-.search button{
-    border:0;
-    background:var(--green);
-    color:white;
-    width:32px;
-    height:32px;
-    border-radius:7px;
-    cursor:pointer;
-}
-
-.login{
-    border:0;
-    background:var(--dark-green);
-    color:white;
-    padding:11px 17px;
-    border-radius:9px;
-    font-family:inherit;
-    cursor:pointer;
-    font-weight:600;
-}
-
-.mobile-menu{
-    display:none;
-    font-size:27px;
-    cursor:pointer;
-}
-
-/* ================= HERO ================= */
-
-.hero{
-    min-height:540px;
-    position:relative;
-    overflow:hidden;
-
-    background:
-    linear-gradient(
-        90deg,
-        rgba(0,40,20,.88),
-        rgba(0,70,30,.55),
-        rgba(0,0,0,.08)
-    ),
-    url("https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1800&q=90");
-
-    background-size:cover;
-    background-position:center;
-}
-
-.hero-content{
-    max-width:1200px;
-    margin:auto;
-    padding:100px 5%;
-    color:white;
-}
-
-.small-title{
-    font-size:19px;
-    font-weight:500;
-    margin-bottom:15px;
-    letter-spacing:.5px;
-}
-
-.hero h1{
-    font-size:64px;
-    line-height:1.15;
-    font-weight:800;
-    max-width:700px;
-}
-
-.hero h1 span{
-    color:#ffd04c;
-}
-
-.hero p{
-    max-width:650px;
-    margin-top:18px;
-    font-size:20px;
-    line-height:1.8;
-    color:#f1f7f3;
-}
-
-.hero-buttons{
-    display:flex;
-    gap:15px;
-    margin-top:30px;
-}
-
-.btn-primary{
-    background:var(--gold);
-    color:#17210f;
-    padding:14px 25px;
-    border-radius:10px;
-    text-decoration:none;
-    font-weight:800;
-    display:inline-block;
-    transition:.3s;
-    border:0;
-    cursor:pointer;
-    font-family:inherit;
-}
-
-.btn-primary:hover{
-    transform:translateY(-2px);
-}
-
-.btn-outline{
-    border:1px solid rgba(255,255,255,.7);
-    color:white;
-    padding:13px 24px;
-    border-radius:10px;
-    text-decoration:none;
-    font-weight:700;
-    backdrop-filter:blur(5px);
-}
-
-/* ================= QUICK CARDS ================= */
-
-.quick-section{
-    max-width:1200px;
-    margin:-65px auto 0;
-    position:relative;
-    z-index:5;
-    padding:0 5%;
-}
-
-.quick-grid{
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:15px;
-}
-
-.quick-card{
-    background:white;
-    border-radius:16px;
-    padding:22px 15px;
-    text-align:center;
-    box-shadow:0 10px 35px rgba(0,0,0,.10);
-    transition:.3s;
-    border:1px solid #edf2ee;
-}
-
-.quick-card:hover{
-    transform:translateY(-7px);
-    box-shadow:0 15px 40px rgba(0,0,0,.14);
-}
-
-.quick-icon{
-    width:55px;
-    height:55px;
-    margin:0 auto 12px;
-    background:var(--light-green);
-    border-radius:14px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:27px;
-}
-
-.quick-card h3{
-    font-size:16px;
-    margin-bottom:4px;
-}
-
-.quick-card p{
-    color:var(--gray);
-    font-size:12px;
-}
-
-/* ================= SECTION ================= */
-
-.section{
-    max-width:1200px;
-    margin:80px auto;
-    padding:0 5%;
-}
-
-.section-heading{
-    text-align:center;
-    margin-bottom:40px;
-}
-
-.section-heading small{
-    color:var(--green);
-    font-weight:700;
-}
-
-.section-heading h2{
-    font-size:35px;
-    margin:8px 0;
-}
-
-.section-heading p{
-    color:var(--gray);
-}
-
-/* ================= SERVICES ================= */
-
-.services{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.service-card{
-    background:white;
-    border:1px solid var(--border);
-    border-radius:18px;
-    padding:28px;
-    transition:.3s;
-    position:relative;
-    overflow:hidden;
-}
-
-.service-card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 15px 35px rgba(0,0,0,.08);
-}
-
-.service-card::after{
-    content:"";
-    width:80px;
-    height:80px;
-    border-radius:50%;
-    background:#eaf8ef;
-    position:absolute;
-    right:-30px;
-    top:-30px;
-}
-
-.service-icon{
-    width:58px;
-    height:58px;
-    background:#eaf8ef;
-    border-radius:14px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:29px;
-    margin-bottom:18px;
-}
-
-.service-card h3{
-    font-size:20px;
-    margin-bottom:8px;
-}
-
-.service-card p{
-    color:var(--gray);
-    line-height:1.7;
-    font-size:14px;
-}
-
-.read-more{
-    display:inline-block;
-    margin-top:18px;
-    color:var(--green);
-    text-decoration:none;
-    font-weight:700;
-}
-
-/* ================= MARKET ================= */
-
-.market{
-    background:#063f24;
-    color:white;
-    padding:60px 0;
-}
-
-.market-inner{
-    max-width:1200px;
-    margin:auto;
-    padding:0 5%;
-}
-
-.market-title{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:30px;
-}
-
-.market-title h2{
-    font-size:32px;
-}
-
-.market-title a{
-    color:#ffd04c;
-    text-decoration:none;
-}
-
-.market-table{
-    width:100%;
-    border-collapse:collapse;
-    background:rgba(255,255,255,.06);
-    border-radius:15px;
-    overflow:hidden;
-}
-
-.market-table th,
-.market-table td{
-    padding:17px;
-    text-align:left;
-    border-bottom:1px solid rgba(255,255,255,.10);
-}
-
-.market-table th{
-    color:#ffd04c;
-}
-
-.market-table td{
-    color:#eef7f1;
-}
-
-.up{
-    color:#7df2a7 !important;
-}
-
-.down{
-    color:#ff9e9e !important;
-}
-
-/* ================= LOADING ================= */
-
-.market-loading{
-    text-align:center;
-    padding:30px;
-    color:#d8f3e2;
-    font-size:16px;
-}
-
-/* ================= CTA ================= */
-
-.cta{
-    max-width:1200px;
-    margin:80px auto;
-    padding:0 5%;
-}
-
-.cta-box{
-    border-radius:24px;
-    padding:55px;
-    background:
-    linear-gradient(
-        100deg,
-        #087a3d,
-        #0c9b50
-    );
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    overflow:hidden;
-}
-
-.cta-box h2{
-    font-size:35px;
-    margin-bottom:10px;
-}
-
-.cta-box p{
-    color:#e7fff0;
-}
-
-/* ================= FOOTER ================= */
-
-footer{
-    background:#071b11;
-    color:white;
-    padding:60px 5% 25px;
-}
-
-.footer-grid{
-    max-width:1200px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:2fr 1fr 1fr 1fr;
-    gap:40px;
-}
-
-.footer-logo{
-    font-size:27px;
-    font-weight:800;
-    margin-bottom:15px;
-}
-
-.footer-about{
-    color:#b9c9bf;
-    line-height:1.8;
-    max-width:400px;
-}
-
-footer h3{
-    margin-bottom:15px;
-}
-
-footer ul{
-    list-style:none;
-}
-
-footer li{
-    margin:10px 0;
-}
-
-footer a{
-    color:#b9c9bf;
-    text-decoration:none;
-}
-
-.footer-bottom{
-    max-width:1200px;
-    margin:40px auto 0;
-    padding-top:20px;
-    border-top:1px solid rgba(255,255,255,.1);
-    text-align:center;
-    color:#93a79a;
-    font-size:13px;
-}
-
-/* ================= MOBILE ================= */
-
-@media(max-width:1100px){
-
-    .menu{
-        display:none;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ખેડૂત મિત્ર | ખેડૂતોનું ડિજિટલ સાથી</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, "Noto Sans Gujarati", sans-serif;
     }
 
-    .mobile-menu{
-        display:block;
+    body {
+      background: #f5f8f4;
+      color: #222;
     }
 
-    .search{
-        display:none;
+    /* HEADER */
+    header {
+      background: #176b3a;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
     }
 
-    .quick-grid{
-        grid-template-columns:repeat(3,1fr);
+    .navbar {
+      max-width: 1200px;
+      margin: auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-}
-
-@media(max-width:700px){
-
-    .topbar{
-        justify-content:center;
-        font-size:11px;
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
     }
 
-    .top-left{
-        display:none;
+    .logo span {
+      display: block;
+      font-size: 12px;
+      font-weight: normal;
+      opacity: 0.9;
     }
 
-    .navbar{
-        height:70px;
-        padding:0 4%;
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
     }
 
-    .logo-text{
-        font-size:21px;
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+      cursor: pointer;
     }
 
-    .logo-icon{
-        width:45px;
-        height:45px;
-        font-size:23px;
+    nav a:hover {
+      opacity: 0.8;
     }
 
-    .login{
-        padding:8px 11px;
-        font-size:12px;
+    .login-btn {
+      border: 1px solid white;
+      padding: 8px 15px;
+      border-radius: 6px;
+      background: transparent;
+      color: white;
+      cursor: pointer;
     }
 
-    .hero{
-        min-height:520px;
-        background-position:65% center;
+    .menu-btn {
+      display: none;
+      font-size: 25px;
+      cursor: pointer;
     }
 
-    .hero-content{
-        padding:75px 7%;
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #176b3a, #2f9e58);
+      color: white;
+      padding: 70px 20px;
+      text-align: center;
     }
 
-    .hero h1{
-        font-size:42px;
+    .hero h1 {
+      font-size: 46px;
+      margin-bottom: 12px;
     }
 
-    .hero p{
-        font-size:16px;
+    .hero p {
+      font-size: 19px;
+      margin-bottom: 25px;
     }
 
-    .hero-buttons{
-        flex-direction:column;
-        align-items:flex-start;
+    .hero-btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background: white;
+      color: #176b3a;
+      text-decoration: none;
+      border-radius: 7px;
+      font-weight: bold;
     }
 
-    .quick-section{
-        margin-top:-40px;
+    /* SEARCH */
+    .search-box {
+      max-width: 700px;
+      margin: -25px auto 35px;
+      padding: 0 20px;
+      position: relative;
+      z-index: 10;
     }
 
-    .quick-grid{
-        grid-template-columns:repeat(2,1fr);
+    .search-box form {
+      display: flex;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+      overflow: hidden;
     }
 
-    .services{
-        grid-template-columns:1fr;
+    .search-box input {
+      flex: 1;
+      padding: 15px;
+      border: none;
+      outline: none;
+      font-size: 16px;
     }
 
-    .section-heading h2{
-        font-size:28px;
+    .search-box button {
+      border: none;
+      background: #f2b705;
+      padding: 0 25px;
+      cursor: pointer;
+      font-weight: bold;
     }
 
-    .market{
-        overflow-x:auto;
+    /* COMMON */
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 25px 20px;
     }
 
-    .market-table{
-        min-width:650px;
+    .section-title {
+      text-align: center;
+      margin-bottom: 30px;
     }
 
-    .cta-box{
-        padding:35px 25px;
-        display:block;
+    .section-title h2 {
+      color: #176b3a;
+      font-size: 30px;
+      margin-bottom: 7px;
     }
 
-    .cta-box h2{
-        font-size:27px;
+    .section-title p {
+      color: #666;
     }
 
-    .cta-box .btn-primary{
-        margin-top:20px;
+    /* CARDS */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
     }
 
-    .footer-grid{
-        grid-template-columns:1fr 1fr;
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      transition: 0.2s;
     }
 
-}
-
-@media(max-width:450px){
-
-    .quick-grid{
-        grid-template-columns:1fr 1fr;
-        gap:10px;
+    .card:hover {
+      transform: translateY(-3px);
     }
 
-    .quick-card{
-        padding:18px 8px;
+    .card-icon {
+      font-size: 35px;
+      margin-bottom: 12px;
     }
 
-    .footer-grid{
-        grid-template-columns:1fr;
+    .card h3 {
+      color: #176b3a;
+      margin-bottom: 10px;
     }
 
-}
+    .card p {
+      color: #666;
+      line-height: 1.6;
+    }
 
-</style>
+    /* MARKET */
+    .market-section {
+      background: white;
+      margin-top: 30px;
+      padding: 45px 0;
+    }
 
+    .table-wrapper {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 650px;
+      background: white;
+    }
+
+    th {
+      background: #176b3a;
+      color: white;
+      padding: 14px;
+      text-align: left;
+    }
+
+    td {
+      padding: 14px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    tr:hover td {
+      background: #f5faf6;
+    }
+
+    .price {
+      font-weight: bold;
+      color: #176b3a;
+    }
+
+    .up {
+      color: #16803c;
+      font-weight: bold;
+    }
+
+    .down {
+      color: #d43d3d;
+      font-weight: bold;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 30px;
+      color: #666;
+    }
+
+    .error-box {
+      text-align: center;
+      padding: 25px;
+      background: #fff3f3;
+      border: 1px solid #f0b5b5;
+      color: #b52b2b;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #123f28;
+      color: white;
+      margin-top: 50px;
+      padding: 35px 20px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 30px;
+    }
+
+    footer h3 {
+      margin-bottom: 12px;
+    }
+
+    footer p,
+    footer a {
+      color: #d9e7dd;
+      line-height: 1.8;
+      text-decoration: none;
+    }
+
+    .copyright {
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      margin-top: 25px;
+      padding-top: 20px;
+      color: #cbdacf;
+    }
+
+    /* MOBILE */
+    @media (max-width: 800px) {
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: #176b3a;
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- ================= TOP BAR ================= -->
+<!-- HEADER -->
+<header>
+  <div class="navbar">
 
-<div class="topbar">
-
-    <div class="top-left">
-
-        <span>📍 અમારું ગામ - ગુજરાત</span>
-
-        <span>🌤️ 32°C | સામાન્ય વાતાવરણ</span>
-
+    <div class="logo">
+      🌾 ખેડૂત મિત્ર
+      <span>ખેડૂતોનું ડિજિટલ સાથી</span>
     </div>
 
-    <div class="top-right">
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
-        <span>🌾 ખેડૂતોનું ડિજિટલ સાથી</span>
+    <nav id="navMenu">
+      <a href="#home">હોમ</a>
+      <a href="#weather">હવામાન</a>
+      <a href="#market">બજાર ભાવ</a>
+      <a href="#guidance">પાક માર્ગદર્શન</a>
+      <a href="#schemes">સરકારી યોજનાઓ</a>
+      <a href="#equipment">કૃષિ સાધનો</a>
 
-        <span>👤 લોગિન / નોંધણી</span>
+      <button class="login-btn" onclick="loginAlert()">
+        Login / Register
+      </button>
+    </nav>
 
-    </div>
+  </div>
+</header>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+  <h1>ખેડૂત મિત્ર</h1>
+
+  <p>
+    ખેડૂતો માટે જરૂરી માહિતી, બજાર ભાવ અને માર્ગદર્શન એક જ જગ્યાએ
+  </p>
+
+  <a href="#market" class="hero-btn">
+    આજના બજાર ભાવ જુઓ
+  </a>
+
+</section>
+
+
+<!-- SEARCH -->
+<div class="search-box">
+
+  <form onsubmit="searchWebsite(event)">
+
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="અહીં શોધો... જેમ કે મગફળી, કપાસ, યોજના..."
+    >
+
+    <button type="submit">
+      🔍 શોધો
+    </button>
+
+  </form>
 
 </div>
 
 
-<!-- ================= NAVBAR ================= -->
+<!-- SERVICES -->
+<section class="container">
 
-<header class="navbar">
+  <div class="section-title">
+    <h2>ખેડૂત મિત્રમાં શું મળશે?</h2>
+    <p>ખેતીને સરળ બનાવવા માટે ઉપયોગી માહિતી</p>
+  </div>
 
-    <a href="#" class="logo">
+  <div class="cards">
 
-        <div class="logo-icon">
-            🌾
-        </div>
-
-        <div class="logo-text">
-            ખેડૂત <span>મિત્ર</span>
-        </div>
-
-    </a>
-
-
-    <nav class="menu">
-
-        <a href="#" class="active">હોમ</a>
-
-        <a href="#weather">હવામાન</a>
-
-        <a href="#market">બજાર ભાવ</a>
-
-        <a href="#crops">પાક માર્ગદર્શન</a>
-
-        <a href="#schemes">સરકારી યોજનાઓ</a>
-
-        <a href="#equipment">ખેતીના સાધનો</a>
-
-        <a href="#more">વધુ ▾</a>
-
-    </nav>
-
-
-    <div class="nav-actions">
-
-        <div class="search">
-
-            <input
-                type="text"
-                placeholder="શું શોધવું છે?"
-            >
-
-            <button>
-                🔍
-            </button>
-
-        </div>
-
-
-        <button class="login">
-            👤 લોગિન
-        </button>
-
-
-        <div class="mobile-menu">
-            ☰
-        </div>
-
+    <div class="card" id="weather">
+      <div class="card-icon">🌦️</div>
+      <h3>હવામાન</h3>
+      <p>
+        તમારા વિસ્તારનું હવામાન અને ખેતી માટે ઉપયોગી હવામાન માહિતી.
+      </p>
     </div>
 
-</header>
-
-
-<!-- ================= HERO ================= -->
-
-<section class="hero">
-
-    <div class="hero-content">
-
-        <div class="small-title">
-            🌱 વધુ માહિતી &nbsp; | &nbsp; સારી ખેતી &nbsp; | &nbsp; સમૃદ્ધ ખેડૂત
-        </div>
-
-        <h1>
-
-            <span>ખેડૂત મિત્ર</span><br>
-
-            ખેડૂતોનું ડિજિટલ સાથી
-
-        </h1>
-
-
-        <p>
-
-            હવામાન, બજાર ભાવ, પાક માર્ગદર્શન,
-            સરકારી યોજનાઓ અને ખેતીની જરૂરી માહિતી —
-            બધું એક જ જગ્યાએ.
-
-        </p>
-
-
-        <div class="hero-buttons">
-
-            <a
-                href="#services"
-                class="btn-primary"
-            >
-                શરૂઆત કરો →
-            </a>
-
-
-            <a
-                href="#market"
-                class="btn-outline"
-            >
-                આજના બજાર ભાવ જુઓ
-            </a>
-
-        </div>
-
+    <div class="card">
+      <div class="card-icon">📈</div>
+      <h3>બજાર ભાવ</h3>
+      <p>
+        વિવિધ પાકોના બજાર ભાવ એક જ જગ્યાએ જુઓ.
+      </p>
     </div>
+
+    <div class="card" id="guidance">
+      <div class="card-icon">🌱</div>
+      <h3>પાક માર્ગદર્શન</h3>
+      <p>
+        પાકની વાવણી, સંભાળ અને ખેતી અંગે ઉપયોગી માહિતી.
+      </p>
+    </div>
+
+    <div class="card" id="schemes">
+      <div class="card-icon">🏛️</div>
+      <h3>સરકારી યોજનાઓ</h3>
+      <p>
+        ખેડૂતો માટેની વિવિધ સરકારી યોજનાઓ અને માહિતી.
+      </p>
+    </div>
+
+    <div class="card" id="equipment">
+      <div class="card-icon">🚜</div>
+      <h3>કૃષિ સાધનો</h3>
+      <p>
+        ખેતીમાં ઉપયોગી સાધનો અને મશીનરી વિશે માહિતી.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🐄</div>
+      <h3>પશુપાલન</h3>
+      <p>
+        પશુપાલન અને પશુ સંભાળ અંગે ઉપયોગી માર્ગદર્શન.
+      </p>
+    </div>
+
+  </div>
 
 </section>
 
 
-<!-- ================= QUICK SERVICES ================= -->
+<!-- MARKET -->
+<section class="market-section" id="market">
 
-<section
-    class="quick-section"
-    id="services"
->
+  <div class="container">
 
-    <div class="quick-grid">
+    <div class="section-title">
 
+      <h2>📊 આજના બજાર ભાવ</h2>
 
-        <div class="quick-card">
-
-            <div class="quick-icon">
-                🌦️
-            </div>
-
-            <h3>
-                હવામાન
-            </h3>
-
-            <p>
-                તમારા ગામનું હવામાન
-            </p>
-
-        </div>
-
-
-        <div class="quick-card">
-
-            <div class="quick-icon">
-                📈
-            </div>
-
-            <h3>
-                બજાર ભાવ
-            </h3>
-
-            <p>
-                આજના APMC ભાવ
-            </p>
-
-        </div>
-
-
-        <div class="quick-card">
-
-            <div class="quick-icon">
-                🌱
-            </div>
-
-            <h3>
-                પાક માર્ગદર્શન
-            </h3>
-
-            <p>
-                પાક પ્રમાણે માહિતી
-            </p>
-
-        </div>
-
-
-        <div class="quick-card">
-
-            <div class="quick-icon">
-                🏛️
-            </div>
-
-            <h3>
-                સરકારી યોજનાઓ
-            </h3>
-
-            <p>
-                ખેડૂત માટેની યોજનાઓ
-            </p>
-
-        </div>
-
-
-        <div class="quick-card">
-
-            <div class="quick-icon">
-                🚜
-            </div>
-
-            <h3>
-                ખેતીના સાધનો
-            </h3>
-
-            <p>
-                સાધનોની માહિતી
-            </p>
-
-        </div>
-
+      <p>
+        Firebase પરથી મળતા બજાર ભાવ
+      </p>
 
     </div>
+
+    <div id="marketLoading" class="loading">
+      ⏳ Firebaseમાંથી બજાર ભાવ લોડ થઈ રહ્યા છે...
+    </div>
+
+    <div id="marketError" class="error-box" style="display:none;">
+    </div>
+
+    <div class="table-wrapper">
+
+      <table id="marketTable" style="display:none;">
+
+        <thead>
+
+          <tr>
+            <th>પાક</th>
+            <th>બજાર</th>
+            <th>ન્યૂનતમ ભાવ</th>
+            <th>મહત્તમ ભાવ</th>
+            <th>સ્થિતિ</th>
+          </tr>
+
+        </thead>
+
+        <tbody id="marketTableBody">
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
 
 </section>
 
 
-<!-- ================= SERVICES ================= -->
+<!-- EXTRA INFORMATION -->
+<section class="container">
 
-<section class="section">
+  <div class="section-title">
 
-    <div class="section-heading">
+    <h2>🌾 ખેતી માટે ઉપયોગી માહિતી</h2>
 
-        <small>
-            ખેડૂત મિત્ર પર શું મળશે?
-        </small>
+    <p>
+      ખેડૂત મિત્ર સાથે તમારી ખેતીને વધુ સરળ બનાવો
+    </p>
 
-        <h2>
-            તમારી ખેતી માટે જરૂરી બધું
-        </h2>
+  </div>
 
-        <p>
-            ખેતીને સરળ, સ્માર્ટ અને વધુ માહિતી આધારિત
-            બનાવવા માટેના સાધનો
-        </p>
+  <div class="cards">
+
+    <div class="card">
+
+      <div class="card-icon">💧</div>
+
+      <h3>સિંચાઈ</h3>
+
+      <p>
+        પાક પ્રમાણે યોગ્ય સિંચાઈ અને પાણી વ્યવસ્થાપનનું મહત્વ.
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <div class="card-icon">🌿</div>
+
+      <h3>ખાતર વ્યવસ્થાપન</h3>
+
+      <p>
+        જમીન અને પાક પ્રમાણે ખાતરનો યોગ્ય ઉપયોગ.
+      </p>
 
     </div>
 
+    <div class="card">
 
-    <div class="services">
+      <div class="card-icon">🪴</div>
 
+      <h3>જમીન સંભાળ</h3>
 
-        <div
-            class="service-card"
-            id="weather"
-        >
-
-            <div class="service-icon">
-                🌦️
-            </div>
-
-            <h3>
-                હવામાન માહિતી
-            </h3>
-
-            <p>
-                તમારા ગામ અથવા શહેર પ્રમાણે હવામાન,
-                વરસાદ, તાપમાન અને પવનની માહિતી મેળવો.
-            </p>
-
-            <a
-                href="#"
-                class="read-more"
-            >
-                વધુ જાણો →
-            </a>
-
-        </div>
-
-
-        <div
-            class="service-card"
-            id="market"
-        >
-
-            <div class="service-icon">
-                📊
-            </div>
-
-            <h3>
-                આજના બજાર ભાવ
-            </h3>
-
-            <p>
-                વિવિધ APMC માર્કેટમાં કપાસ, મગફળી,
-                જીરું, ઘઉં અને અન્ય પાકના ભાવ જુઓ.
-            </p>
-
-            <a
-                href="#market"
-                class="read-more"
-            >
-                ભાવ જુઓ →
-            </a>
-
-        </div>
-
-
-        <div
-            class="service-card"
-            id="crops"
-        >
-
-            <div class="service-icon">
-                🌱
-            </div>
-
-            <h3>
-                પાક માર્ગદર્શન
-            </h3>
-
-            <p>
-                વાવણીથી લઈને લણણી સુધી પાક પ્રમાણે
-                ખેતીની ઉપયોગી માહિતી મેળવો.
-            </p>
-
-            <a
-                href="#"
-                class="read-more"
-            >
-                પાક જુઓ →
-            </a>
-
-        </div>
-
-
-        <div
-            class="service-card"
-            id="schemes"
-        >
-
-            <div class="service-icon">
-                🏛️
-            </div>
-
-            <h3>
-                સરકારી યોજનાઓ
-            </h3>
-
-            <p>
-                ખેડૂતો માટે ઉપલબ્ધ સરકારી યોજનાઓ,
-                પાત્રતા અને અરજીની માહિતી મેળવો.
-            </p>
-
-            <a
-                href="#"
-                class="read-more"
-            >
-                યોજનાઓ જુઓ →
-            </a>
-
-        </div>
-
-
-        <div
-            class="service-card"
-            id="equipment"
-        >
-
-            <div class="service-icon">
-                🚜
-            </div>
-
-            <h3>
-                ખેતીના સાધનો
-            </h3>
-
-            <p>
-                ટ્રેક્ટર, રોટાવેટર, પંપ, સ્પ્રેયર
-                અને અન્ય ખેતીના સાધનોની માહિતી.
-            </p>
-
-            <a
-                href="#"
-                class="read-more"
-            >
-                સાધનો જુઓ →
-            </a>
-
-        </div>
-
-
-        <div class="service-card">
-
-            <div class="service-icon">
-                🐄
-            </div>
-
-            <h3>
-                પશુપાલન
-            </h3>
-
-            <p>
-                ગાય, ભેંસ અને અન્ય પશુઓના આહાર,
-                સંભાળ અને રસીકરણ અંગેની માહિતી.
-            </p>
-
-            <a
-                href="#"
-                class="read-more"
-            >
-                વધુ જાણો →
-            </a>
-
-        </div>
-
+      <p>
+        જમીનની ગુણવત્તા જાળવવા માટે જરૂરી ખેતી પદ્ધતિઓ.
+      </p>
 
     </div>
+
+  </div>
 
 </section>
 
 
-<!-- ================= MARKET ================= -->
-
-<section
-    class="market"
-    id="market-section"
->
-
-    <div class="market-inner">
-
-        <div class="market-title">
-
-            <h2>
-                📈 આજના બજાર ભાવ
-            </h2>
-
-            <a href="#market-section">
-                બધા ભાવ જુઓ →
-            </a>
-
-        </div>
-
-
-        <table class="market-table">
-
-            <thead>
-
-                <tr>
-
-                    <th>
-                        પાક
-                    </th>
-
-                    <th>
-                        માર્કેટ
-                    </th>
-
-                    <th>
-                        ન્યૂનતમ
-                    </th>
-
-                    <th>
-                        મહત્તમ
-                    </th>
-
-                    <th>
-                        સ્થિતિ
-                    </th>
-
-                </tr>
-
-            </thead>
-
-
-            <tbody id="marketTableBody">
-
-                <tr>
-                    <td>મગફળી</td>
-                    <td>બોટાદ</td>
-                    <td>₹5,200</td>
-                    <td>₹6,150</td>
-                    <td class="up">↑ વધારો</td>
-                </tr>
-
-                <tr>
-                    <td>કપાસ</td>
-                    <td>રાજકોટ</td>
-                    <td>₹6,800</td>
-                    <td>₹7,450</td>
-                    <td class="up">↑ વધારો</td>
-                </tr>
-
-                <tr>
-                    <td>જીરું</td>
-                    <td>ઉંઝા</td>
-                    <td>₹20,500</td>
-                    <td>₹23,200</td>
-                    <td class="down">↓ ઘટાડો</td>
-                </tr>
-
-                <tr>
-                    <td>ઘઉં</td>
-                    <td>અમદાવાદ</td>
-                    <td>₹2,400</td>
-                    <td>₹2,850</td>
-                    <td class="up">↑ વધારો</td>
-                </tr>
-
-            </tbody>
-
-        </table>
-
-    </div>
-
-</section>
-
-
-<!-- ================= CTA ================= -->
-
-<section class="cta">
-
-    <div class="cta-box">
-
-        <div>
-
-            <h2>
-                ખેડૂત મિત્ર સાથે જોડાઓ 🌾
-            </h2>
-
-            <p>
-                તમારી ખેતી માટેની જરૂરી માહિતી
-                એક જ જગ્યાએ મેળવો.
-            </p>
-
-        </div>
-
-
-        <a
-            href="#"
-            class="btn-primary"
-            id="registerButton"
-        >
-            મફત નોંધણી કરો →
-        </a>
-
-    </div>
-
-</section>
-
-
-<!-- ================= FOOTER ================= -->
-
+<!-- FOOTER -->
 <footer>
 
-    <div class="footer-grid">
+  <div class="footer-content">
 
+    <div>
 
-        <div>
+      <h3>🌾 ખેડૂત મિત્ર</h3>
 
-            <div class="footer-logo">
-                🌾 ખેડૂત મિત્ર
-            </div>
-
-            <p class="footer-about">
-
-                ખેડૂતો માટે બનાવવામાં આવેલું ડિજિટલ પ્લેટફોર્મ,
-                જ્યાં ખેતી, બજાર, હવામાન અને સરકારી યોજનાઓની
-                ઉપયોગી માહિતી એક જ જગ્યાએ મળશે.
-
-            </p>
-
-        </div>
-
-
-        <div>
-
-            <h3>
-                મુખ્ય વિભાગો
-            </h3>
-
-            <ul>
-
-                <li>
-                    <a href="#">
-                        હોમ
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#weather">
-                        હવામાન
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#market-section">
-                        બજાર ભાવ
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#crops">
-                        પાક માર્ગદર્શન
-                    </a>
-                </li>
-
-            </ul>
-
-        </div>
-
-
-        <div>
-
-            <h3>
-                ખેડૂત સેવા
-            </h3>
-
-            <ul>
-
-                <li>
-                    <a href="#schemes">
-                        સરકારી યોજનાઓ
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#equipment">
-                        ખેતીના સાધનો
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        પશુપાલન
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        ખેડૂત માર્કેટ
-                    </a>
-                </li>
-
-            </ul>
-
-        </div>
-
-
-        <div>
-
-            <h3>
-                મદદ
-            </h3>
-
-            <ul>
-
-                <li>
-                    <a href="#">
-                        અમારા વિશે
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        સંપર્ક
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        ગોપનીયતા
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        Terms & Conditions
-                    </a>
-                </li>
-
-            </ul>
-
-        </div>
-
+      <p>
+        ખેડૂતોનું ડિજિટલ સાથી.
+        ખેતીને સરળ અને માહિતીપૂર્ણ બનાવવા માટેનું પ્લેટફોર્મ.
+      </p>
 
     </div>
 
+    <div>
 
-    <div class="footer-bottom">
+      <h3>ઝડપી લિંક્સ</h3>
 
-        © 2026 ખેડૂત મિત્ર — ખેડૂતોનું ડિજિટલ સાથી
+      <p><a href="#home">હોમ</a></p>
+      <p><a href="#market">બજાર ભાવ</a></p>
+      <p><a href="#guidance">પાક માર્ગદર્શન</a></p>
 
     </div>
+
+    <div>
+
+      <h3>માહિતી</h3>
+
+      <p>સરકારી યોજનાઓ</p>
+      <p>કૃષિ સાધનો</p>
+      <p>પશુપાલન</p>
+
+    </div>
+
+  </div>
+
+  <div class="copyright">
+
+    © 2026 ખેડૂત મિત્ર | બધા હક્કો સુરક્ષિત
+
+  </div>
 
 </footer>
 
 
-<!-- ========================================================= -->
-<!-- FIREBASE + WEBSITE JAVASCRIPT -->
-<!-- ========================================================= -->
-
+<!-- FIREBASE + JAVASCRIPT -->
 <script type="module">
 
-/* ================= FIREBASE IMPORTS ================= */
+  import { initializeApp }
+    from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
 
-import {
-    initializeApp
-} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
-
-import {
-    getAnalytics
-} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-analytics.js";
-
-import {
+  import {
     getFirestore,
     collection,
     getDocs
-} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+  }
+    from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
 
-/* ================= FIREBASE CONFIG ================= */
+  /* ==============================
+     FIREBASE CONFIG
+  ============================== */
 
-const firebaseConfig = {
+  const firebaseConfig = {
 
     apiKey: "AIzaSyCoRcAEmMV0i-WVgnA5uzZjcDzBGtsqcDE",
 
-    authDomain:
-        "khedut-mitra-d6808.firebaseapp.com",
+    authDomain: "khedut-mitra-d6808.firebaseapp.com",
 
-    projectId:
-        "khedut-mitra-d6808",
+    projectId: "khedut-mitra-d6808",
 
-    storageBucket:
-        "khedut-mitra-d6808.firebasestorage.app",
+    storageBucket: "khedut-mitra-d6808.firebasestorage.app",
 
-    messagingSenderId:
-        "368250177516",
+    messagingSenderId: "368250177516",
 
-    appId:
-        "1:368250177516:web:d23db936f7c5a4e53c62c9",
+    appId: "1:368250177516:web:d23db936f7c5a4e53c62c9",
 
-    measurementId:
-        "G-RZC2MFEQBW"
+    measurementId: "G-RZC2MFE0BW"
 
-};
+  };
 
 
-/* ================= INITIALIZE FIREBASE ================= */
+  /* ==============================
+     FIREBASE START
+  ============================== */
 
-const app = initializeApp(firebaseConfig);
+  const app = initializeApp(firebaseConfig);
 
-let analytics = null;
+  const db = getFirestore(app);
 
-try{
 
-    analytics = getAnalytics(app);
+  /* ==============================
+     PRICE FORMAT
+  ============================== */
 
-}catch(error){
+  function formatPrice(price) {
 
-    console.log(
-        "Analytics હાલમાં ઉપલબ્ધ નથી:",
+    if (price === undefined || price === null || price === "") {
+      return "—";
+    }
+
+    const number = Number(price);
+
+    if (isNaN(number)) {
+      return "—";
+    }
+
+    return "₹" + number.toLocaleString("en-IN");
+
+  }
+
+
+  /* ==============================
+     LOAD MARKET PRICES
+  ============================== */
+
+  async function loadMarketPrices() {
+
+    const loading =
+      document.getElementById("marketLoading");
+
+    const errorBox =
+      document.getElementById("marketError");
+
+    const table =
+      document.getElementById("marketTable");
+
+    const tbody =
+      document.getElementById("marketTableBody");
+
+
+    try {
+
+      loading.style.display = "block";
+
+      errorBox.style.display = "none";
+
+      table.style.display = "none";
+
+      tbody.innerHTML = "";
+
+
+      const marketRef =
+        collection(db, "marketPrices");
+
+
+      const snapshot =
+        await getDocs(marketRef);
+
+
+      console.log(
+        "Firebase documents:",
+        snapshot.size
+      );
+
+
+      if (snapshot.empty) {
+
+        loading.style.display = "none";
+
+        errorBox.style.display = "block";
+
+        errorBox.innerHTML =
+          "⚠️ Firebaseમાં <b>marketPrices</b> collectionમાં હજુ કોઈ ભાવ ઉપલબ્ધ નથી.";
+
+        return;
+
+      }
+
+
+      snapshot.forEach((doc) => {
+
+        const data = doc.data();
+
+        console.log(
+          "Firebase price:",
+          doc.id,
+          data
+        );
+
+
+        const row =
+          document.createElement("tr");
+
+
+        let status =
+          data.status || "↑ વધારો";
+
+
+        let statusClass =
+          status.includes("↓")
+            ? "down"
+            : "up";
+
+
+        row.innerHTML = `
+
+          <td>
+            <strong>
+              ${data.crop || "—"}
+            </strong>
+          </td>
+
+          <td>
+            ${data.market || "—"}
+          </td>
+
+          <td class="price">
+            ${formatPrice(data.minPrice)}
+          </td>
+
+          <td class="price">
+            ${formatPrice(data.maxPrice)}
+          </td>
+
+          <td class="${statusClass}">
+            ${status}
+          </td>
+
+        `;
+
+
+        tbody.appendChild(row);
+
+      });
+
+
+      loading.style.display = "none";
+
+      table.style.display = "table";
+
+
+    } catch (error) {
+
+      console.error(
+        "Firebase Error:",
         error
-    );
-
-}
-
-const db = getFirestore(app);
-
-console.log("🔥 Firebase Connected Successfully");
+      );
 
 
-/* ========================================================= */
-/* MARKET PRICE FROM FIRESTORE */
-/* ========================================================= */
+      loading.style.display = "none";
 
-async function loadMarketPrices(){
+      table.style.display = "none";
 
-    const tableBody =
-        document.getElementById("marketTableBody");
+      errorBox.style.display = "block";
 
 
-    try{
+      errorBox.innerHTML = `
 
-        console.log(
-            "📊 Firestoreમાંથી marketPrices વાંચી રહ્યા છીએ..."
-        );
+        ❌ Firebaseમાંથી ભાવ લોડ થઈ શક્યા નથી.<br><br>
 
+        <small>
+          ${error.message}
+        </small>
 
-        const snapshot = await getDocs(
-            collection(db, "marketPrices")
-        );
-
-
-        if(snapshot.empty){
-
-            console.log(
-                "Firestoreમાં marketPrices data નથી."
-            );
-
-            return;
-
-        }
-
-
-        tableBody.innerHTML = "";
-
-
-        snapshot.forEach((docSnapshot)=>{
-
-            const data =
-                docSnapshot.data();
-
-
-            const crop =
-                data.crop || "—";
-
-
-            const market =
-                data.market || "—";
-
-
-            const minPrice =
-                data.minPrice ?? "—";
-
-
-            const maxPrice =
-                data.maxPrice ?? "—";
-
-
-            let status =
-                data.status || "↑ વધારો";
-
-
-            let statusClass =
-                "up";
-
-
-            if(
-                status.includes("ઘટાડો") ||
-                status.includes("↓")
-            ){
-
-                statusClass =
-                    "down";
-
-            }
-
-
-            const row =
-                document.createElement("tr");
-
-
-            row.innerHTML = `
-
-                <td>
-                    ${crop}
-                </td>
-
-                <td>
-                    ${market}
-                </td>
-
-                <td>
-                    ${formatPrice(minPrice)}
-                </td>
-
-                <td>
-                    ${formatPrice(maxPrice)}
-                </td>
-
-                <td class="${statusClass}">
-                    ${status}
-                </td>
-
-            `;
-
-
-            tableBody.appendChild(row);
-
-        });
-
-
-        console.log(
-            "✅ Market prices successfully loaded."
-        );
-
-
-    }catch(error){
-
-        console.error(
-            "❌ Firestore Error:",
-            error
-        );
-
-
-        /*
-         Firestore Rules હજુ બંધ હોવાથી
-         હાલના sample prices જ દેખાશે.
-        */
+      `;
 
     }
 
-}
+  }
 
 
-/* ================= PRICE FORMAT ================= */
+  /* ==============================
+     PAGE LOAD
+  ============================== */
 
-function formatPrice(price){
-
-    if(price === "—"){
-        return "—";
-    }
+  loadMarketPrices();
 
 
-    const number =
-        Number(price);
+  /* ==============================
+     SEARCH
+  ============================== */
+
+  window.searchWebsite =
+    function(event) {
+
+      event.preventDefault();
+
+      const search =
+        document
+          .getElementById("searchInput")
+          .value
+          .trim();
 
 
-    if(Number.isNaN(number)){
-        return "₹" + price;
-    }
+      if (!search) {
+
+        alert("કૃપા કરીને કંઈક લખીને શોધો.");
+
+        return;
+
+      }
 
 
-    return "₹" +
-        number.toLocaleString("en-IN");
+      alert(
+        `"${search}" માટે શોધ સુવિધા ટૂંક સમયમાં વધુ વિસ્તૃત કરવામાં આવશે.`
+      );
 
-}
-
-
-/* ================= LOAD MARKET DATA ================= */
-
-loadMarketPrices();
+    };
 
 
-/* ========================================================= */
-/* SEARCH */
-/* ========================================================= */
+  /* ==============================
+     LOGIN
+  ============================== */
 
-const searchButton =
-    document.querySelector(".search button");
+  window.loginAlert =
+    function() {
 
+      alert(
+        "Login / Register સુવિધા ટૂંક સમયમાં Firebase Authentication સાથે ચાલુ કરવામાં આવશે."
+      );
 
-const searchInput =
-    document.querySelector(".search input");
-
-
-searchButton.addEventListener(
-    "click",
-    function(){
-
-        const value =
-            searchInput.value.trim();
+    };
 
 
-        if(value === ""){
-
-            alert(
-                "કૃપા કરીને કંઈક શોધો."
-            );
-
-            return;
-
-        }
+</script>
 
 
-        alert(
-            "તમે શોધ્યું: " + value
-        );
+<!-- MENU SCRIPT -->
+<script>
 
-    }
-);
+  function toggleMenu() {
+
+    const nav =
+      document.getElementById("navMenu");
+
+    nav.classList.toggle("active");
+
+  }
 
 
-/* ========================================================= */
-/* LOGIN */
-/* ========================================================= */
+  document
+    .querySelectorAll("#navMenu a")
+    .forEach(function(link) {
 
-document
-    .querySelector(".login")
-    .addEventListener(
+      link.addEventListener(
         "click",
-        function(){
+        function() {
 
-            alert(
-                "Login System હવે Firebase Authentication સાથે બનાવવામાં આવશે."
-            );
-
-        }
-    );
-
-
-/* ========================================================= */
-/* REGISTER */
-/* ========================================================= */
-
-document
-    .getElementById("registerButton")
-    .addEventListener(
-        "click",
-        function(event){
-
-            event.preventDefault();
-
-            alert(
-                "Registration System હવે Firebase Authentication સાથે બનાવવામાં આવશે."
-            );
+          document
+            .getElementById("navMenu")
+            .classList.remove("active");
 
         }
-    );
-
-
-/* ========================================================= */
-/* MOBILE MENU */
-/* ========================================================= */
-
-document
-    .querySelector(".mobile-menu")
-    .addEventListener(
-        "click",
-        function(){
-
-            const menu =
-                document.querySelector(".menu");
-
-
-            if(
-                menu.style.display === "flex"
-            ){
-
-                menu.style.display =
-                    "none";
-
-            }else{
-
-                menu.style.display =
-                    "flex";
-
-                menu.style.position =
-                    "absolute";
-
-                menu.style.top =
-                    "70px";
-
-                menu.style.left =
-                    "0";
-
-                menu.style.right =
-                    "0";
-
-                menu.style.background =
-                    "white";
-
-                menu.style.flexDirection =
-                    "column";
-
-                menu.style.padding =
-                    "15px";
-
-                menu.style.boxShadow =
-                    "0 10px 20px rgba(0,0,0,.1)";
-
-                menu.style.zIndex =
-                    "999";
-
-            }
-
-        }
-    );
-
-
-/* ========================================================= */
-/* CLOSE MOBILE MENU AFTER CLICK */
-/* ========================================================= */
-
-document
-    .querySelectorAll(".menu a")
-    .forEach(function(link){
-
-        link.addEventListener(
-            "click",
-            function(){
-
-                if(window.innerWidth <= 1100){
-
-                    document.querySelector(
-                        ".menu"
-                    ).style.display = "none";
-
-                }
-
-            }
-        );
+      );
 
     });
-
 
 </script>
 
