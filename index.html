@@ -14,12 +14,17 @@
       font-family: Arial, "Noto Sans Gujarati", sans-serif;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background: #f5f8f4;
       color: #222;
     }
 
-    /* HEADER */
+    /* ================= HEADER ================= */
+
     header {
       background: #176b3a;
       color: white;
@@ -48,12 +53,13 @@
       font-size: 12px;
       font-weight: normal;
       opacity: 0.9;
+      margin-top: 3px;
     }
 
     nav {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 18px;
     }
 
     nav a {
@@ -78,15 +84,16 @@
 
     .menu-btn {
       display: none;
-      font-size: 25px;
+      font-size: 27px;
       cursor: pointer;
     }
 
-    /* HERO */
+    /* ================= HERO ================= */
+
     .hero {
       background: linear-gradient(135deg, #176b3a, #2f9e58);
       color: white;
-      padding: 70px 20px;
+      padding: 75px 20px;
       text-align: center;
     }
 
@@ -97,12 +104,12 @@
 
     .hero p {
       font-size: 19px;
-      margin-bottom: 25px;
+      margin-bottom: 28px;
     }
 
     .hero-btn {
       display: inline-block;
-      padding: 12px 25px;
+      padding: 13px 26px;
       background: white;
       color: #176b3a;
       text-decoration: none;
@@ -110,7 +117,8 @@
       font-weight: bold;
     }
 
-    /* SEARCH */
+    /* ================= SEARCH ================= */
+
     .search-box {
       max-width: 700px;
       margin: -25px auto 35px;
@@ -143,7 +151,8 @@
       font-weight: bold;
     }
 
-    /* COMMON */
+    /* ================= COMMON ================= */
+
     .container {
       max-width: 1200px;
       margin: auto;
@@ -165,7 +174,8 @@
       color: #666;
     }
 
-    /* CARDS */
+    /* ================= CARDS ================= */
+
     .cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -199,7 +209,8 @@
       line-height: 1.6;
     }
 
-    /* MARKET */
+    /* ================= MARKET ================= */
+
     .market-section {
       background: white;
       margin-top: 30px;
@@ -208,24 +219,25 @@
 
     .table-wrapper {
       overflow-x: auto;
+      border-radius: 10px;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      min-width: 650px;
+      min-width: 800px;
       background: white;
     }
 
     th {
       background: #176b3a;
       color: white;
-      padding: 14px;
+      padding: 15px;
       text-align: left;
     }
 
     td {
-      padding: 14px;
+      padding: 15px;
       border-bottom: 1px solid #ddd;
     }
 
@@ -236,6 +248,11 @@
     .price {
       font-weight: bold;
       color: #176b3a;
+    }
+
+    .crop-name {
+      font-weight: bold;
+      color: #222;
     }
 
     .up {
@@ -252,6 +269,7 @@
       text-align: center;
       padding: 30px;
       color: #666;
+      font-size: 17px;
     }
 
     .error-box {
@@ -262,9 +280,28 @@
       color: #b52b2b;
       border-radius: 8px;
       margin-top: 15px;
+      line-height: 1.7;
     }
 
-    /* FOOTER */
+    .success-info {
+      text-align: center;
+      color: #176b3a;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
+    /* ================= INFO ================= */
+
+    .info-box {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      line-height: 1.8;
+    }
+
+    /* ================= FOOTER ================= */
+
     footer {
       background: #123f28;
       color: white;
@@ -299,7 +336,8 @@
       color: #cbdacf;
     }
 
-    /* MOBILE */
+    /* ================= MOBILE ================= */
+
     @media (max-width: 800px) {
 
       nav {
@@ -311,6 +349,7 @@
         background: #176b3a;
         flex-direction: column;
         padding: 20px;
+        gap: 15px;
       }
 
       nav.active {
@@ -336,596 +375,1052 @@
       .footer-content {
         grid-template-columns: 1fr;
       }
+
+      .section-title h2 {
+        font-size: 25px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<header>
-  <div class="navbar">
+  <!-- ================= HEADER ================= -->
 
-    <div class="logo">
-      🌾 ખેડૂત મિત્ર
-      <span>ખેડૂતોનું ડિજિટલ સાથી</span>
+  <header>
+
+    <div class="navbar">
+
+      <div class="logo">
+        🌾 ખેડૂત મિત્ર
+        <span>ખેડૂતોનું ડિજિટલ સાથી</span>
+      </div>
+
+      <div
+        class="menu-btn"
+        onclick="toggleMenu()">
+        ☰
+      </div>
+
+      <nav id="navMenu">
+
+        <a href="#home">હોમ</a>
+
+        <a href="#weather">હવામાન</a>
+
+        <a href="#market">બજાર ભાવ</a>
+
+        <a href="#guidance">પાક માર્ગદર્શન</a>
+
+        <a href="#schemes">સરકારી યોજનાઓ</a>
+
+        <a href="#equipment">કૃષિ સાધનો</a>
+
+        <button
+          class="login-btn"
+          onclick="loginAlert()">
+          Login / Register
+        </button>
+
+      </nav>
+
     </div>
 
-    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+  </header>
 
-    <nav id="navMenu">
-      <a href="#home">હોમ</a>
-      <a href="#weather">હવામાન</a>
-      <a href="#market">બજાર ભાવ</a>
-      <a href="#guidance">પાક માર્ગદર્શન</a>
-      <a href="#schemes">સરકારી યોજનાઓ</a>
-      <a href="#equipment">કૃષિ સાધનો</a>
 
-      <button class="login-btn" onclick="loginAlert()">
-        Login / Register
+  <!-- ================= HERO ================= -->
+
+  <section
+    class="hero"
+    id="home">
+
+    <h1>ખેડૂત મિત્ર</h1>
+
+    <p>
+      ખેડૂતો માટે જરૂરી માહિતી, બજાર ભાવ અને માર્ગદર્શન એક જ જગ્યાએ
+    </p>
+
+    <a
+      href="#market"
+      class="hero-btn">
+      આજના બજાર ભાવ જુઓ
+    </a>
+
+  </section>
+
+
+  <!-- ================= SEARCH ================= -->
+
+  <div class="search-box">
+
+    <form onsubmit="searchWebsite(event)">
+
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="અહીં શોધો... જેમ કે મગફળી, કપાસ, યોજના...">
+
+      <button type="submit">
+        🔍 શોધો
       </button>
-    </nav>
 
-  </div>
-</header>
-
-
-<!-- HERO -->
-<section class="hero" id="home">
-
-  <h1>ખેડૂત મિત્ર</h1>
-
-  <p>
-    ખેડૂતો માટે જરૂરી માહિતી, બજાર ભાવ અને માર્ગદર્શન એક જ જગ્યાએ
-  </p>
-
-  <a href="#market" class="hero-btn">
-    આજના બજાર ભાવ જુઓ
-  </a>
-
-</section>
-
-
-<!-- SEARCH -->
-<div class="search-box">
-
-  <form onsubmit="searchWebsite(event)">
-
-    <input
-      type="text"
-      id="searchInput"
-      placeholder="અહીં શોધો... જેમ કે મગફળી, કપાસ, યોજના..."
-    >
-
-    <button type="submit">
-      🔍 શોધો
-    </button>
-
-  </form>
-
-</div>
-
-
-<!-- SERVICES -->
-<section class="container">
-
-  <div class="section-title">
-    <h2>ખેડૂત મિત્રમાં શું મળશે?</h2>
-    <p>ખેતીને સરળ બનાવવા માટે ઉપયોગી માહિતી</p>
-  </div>
-
-  <div class="cards">
-
-    <div class="card" id="weather">
-      <div class="card-icon">🌦️</div>
-      <h3>હવામાન</h3>
-      <p>
-        તમારા વિસ્તારનું હવામાન અને ખેતી માટે ઉપયોગી હવામાન માહિતી.
-      </p>
-    </div>
-
-    <div class="card">
-      <div class="card-icon">📈</div>
-      <h3>બજાર ભાવ</h3>
-      <p>
-        વિવિધ પાકોના બજાર ભાવ એક જ જગ્યાએ જુઓ.
-      </p>
-    </div>
-
-    <div class="card" id="guidance">
-      <div class="card-icon">🌱</div>
-      <h3>પાક માર્ગદર્શન</h3>
-      <p>
-        પાકની વાવણી, સંભાળ અને ખેતી અંગે ઉપયોગી માહિતી.
-      </p>
-    </div>
-
-    <div class="card" id="schemes">
-      <div class="card-icon">🏛️</div>
-      <h3>સરકારી યોજનાઓ</h3>
-      <p>
-        ખેડૂતો માટેની વિવિધ સરકારી યોજનાઓ અને માહિતી.
-      </p>
-    </div>
-
-    <div class="card" id="equipment">
-      <div class="card-icon">🚜</div>
-      <h3>કૃષિ સાધનો</h3>
-      <p>
-        ખેતીમાં ઉપયોગી સાધનો અને મશીનરી વિશે માહિતી.
-      </p>
-    </div>
-
-    <div class="card">
-      <div class="card-icon">🐄</div>
-      <h3>પશુપાલન</h3>
-      <p>
-        પશુપાલન અને પશુ સંભાળ અંગે ઉપયોગી માર્ગદર્શન.
-      </p>
-    </div>
+    </form>
 
   </div>
 
-</section>
 
+  <!-- ================= SERVICES ================= -->
 
-<!-- MARKET -->
-<section class="market-section" id="market">
-
-  <div class="container">
+  <section class="container">
 
     <div class="section-title">
 
-      <h2>📊 આજના બજાર ભાવ</h2>
+      <h2>
+        ખેડૂત મિત્રમાં શું મળશે?
+      </h2>
 
       <p>
-        Firebase પરથી મળતા બજાર ભાવ
+        ખેડૂતો માટે ઉપયોગી માહિતી એક જ જગ્યાએ
       </p>
 
     </div>
 
-    <div id="marketLoading" class="loading">
-      ⏳ Firebaseમાંથી બજાર ભાવ લોડ થઈ રહ્યા છે...
+
+    <div class="cards">
+
+      <div
+        class="card"
+        id="weather">
+
+        <div class="card-icon">
+          🌦️
+        </div>
+
+        <h3>
+          હવામાન
+        </h3>
+
+        <p>
+          તમારા વિસ્તારનું હવામાન અને ખેતી માટે ઉપયોગી હવામાન માહિતી.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-icon">
+          📈
+        </div>
+
+        <h3>
+          બજાર ભાવ
+        </h3>
+
+        <p>
+          વિવિધ પાકોના આજના બજાર ભાવ એક જ જગ્યાએ જુઓ.
+        </p>
+
+      </div>
+
+
+      <div
+        class="card"
+        id="guidance">
+
+        <div class="card-icon">
+          🌱
+        </div>
+
+        <h3>
+          પાક માર્ગદર્શન
+        </h3>
+
+        <p>
+          પાકની વાવણી, સંભાળ અને ખેતી અંગે ઉપયોગી માહિતી.
+        </p>
+
+      </div>
+
+
+      <div
+        class="card"
+        id="schemes">
+
+        <div class="card-icon">
+          🏛️
+        </div>
+
+        <h3>
+          સરકારી યોજનાઓ
+        </h3>
+
+        <p>
+          ખેડૂતો માટેની વિવિધ સરકારી યોજનાઓ અને માહિતી.
+        </p>
+
+      </div>
+
+
+      <div
+        class="card"
+        id="equipment">
+
+        <div class="card-icon">
+          🚜
+        </div>
+
+        <h3>
+          કૃષિ સાધનો
+        </h3>
+
+        <p>
+          ખેતીમાં ઉપયોગી સાધનો અને મશીનરી વિશે માહિતી.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-icon">
+          🐄
+        </div>
+
+        <h3>
+          પશુપાલન
+        </h3>
+
+        <p>
+          પશુપાલન અને પશુ સંભાળ અંગે ઉપયોગી માર્ગદર્શન.
+        </p>
+
+      </div>
+
     </div>
 
-    <div id="marketError" class="error-box" style="display:none;">
+  </section>
+
+
+  <!-- ================= MARKET PRICE ================= -->
+
+  <section
+    class="market-section"
+    id="market">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>
+          📊 આજના બજાર ભાવ
+        </h2>
+
+        <p>
+          Firebase પરથી મળતા બજાર ભાવ
+        </p>
+
+      </div>
+
+
+      <div
+        id="marketLoading"
+        class="loading">
+
+        ⏳ Firebaseમાંથી બજાર ભાવ લોડ થઈ રહ્યા છે...
+
+      </div>
+
+
+      <div
+        id="marketError"
+        class="error-box"
+        style="display:none;">
+
+      </div>
+
+
+      <div
+        id="marketInfo"
+        class="success-info"
+        style="display:none;">
+
+      </div>
+
+
+      <div class="table-wrapper">
+
+        <table
+          id="marketTable"
+          style="display:none;">
+
+          <thead>
+
+            <tr>
+
+              <th>
+                પાક
+              </th>
+
+              <th>
+                બજાર
+              </th>
+
+              <th>
+                ન્યૂનતમ ભાવ
+              </th>
+
+              <th>
+                મહત્તમ ભાવ
+              </th>
+
+              <th>
+                સરેરાશ ભાવ
+              </th>
+
+              <th>
+                આવક
+              </th>
+
+              <th>
+                સ્થિતિ
+              </th>
+
+            </tr>
+
+          </thead>
+
+          <tbody
+            id="marketTableBody">
+
+          </tbody>
+
+        </table>
+
+      </div>
+
     </div>
 
-    <div class="table-wrapper">
-
-      <table id="marketTable" style="display:none;">
-
-        <thead>
-
-          <tr>
-            <th>પાક</th>
-            <th>બજાર</th>
-            <th>ન્યૂનતમ ભાવ</th>
-            <th>મહત્તમ ભાવ</th>
-            <th>સ્થિતિ</th>
-          </tr>
-
-        </thead>
-
-        <tbody id="marketTableBody">
-        </tbody>
-
-      </table>
-
-    </div>
-
-  </div>
-
-</section>
+  </section>
 
 
-<!-- EXTRA INFORMATION -->
-<section class="container">
+  <!-- ================= FARMING INFORMATION ================= -->
 
-  <div class="section-title">
+  <section class="container">
 
-    <h2>🌾 ખેતી માટે ઉપયોગી માહિતી</h2>
+    <div class="section-title">
 
-    <p>
-      ખેડૂત મિત્ર સાથે તમારી ખેતીને વધુ સરળ બનાવો
-    </p>
-
-  </div>
-
-  <div class="cards">
-
-    <div class="card">
-
-      <div class="card-icon">💧</div>
-
-      <h3>સિંચાઈ</h3>
+      <h2>
+        🌾 ખેતી માટે ઉપયોગી માહિતી
+      </h2>
 
       <p>
-        પાક પ્રમાણે યોગ્ય સિંચાઈ અને પાણી વ્યવસ્થાપનનું મહત્વ.
+        ખેડૂત મિત્ર સાથે તમારી ખેતીને વધુ સરળ બનાવો
       </p>
 
     </div>
 
-    <div class="card">
 
-      <div class="card-icon">🌿</div>
+    <div class="cards">
 
-      <h3>ખાતર વ્યવસ્થાપન</h3>
+      <div class="card">
 
-      <p>
-        જમીન અને પાક પ્રમાણે ખાતરનો યોગ્ય ઉપયોગ.
-      </p>
+        <div class="card-icon">
+          💧
+        </div>
 
-    </div>
+        <h3>
+          સિંચાઈ
+        </h3>
 
-    <div class="card">
+        <p>
+          પાક પ્રમાણે યોગ્ય સિંચાઈ અને પાણી વ્યવસ્થાપનનું મહત્વ.
+        </p>
 
-      <div class="card-icon">🪴</div>
-
-      <h3>જમીન સંભાળ</h3>
-
-      <p>
-        જમીનની ગુણવત્તા જાળવવા માટે જરૂરી ખેતી પદ્ધતિઓ.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
+      </div>
 
 
-<!-- FOOTER -->
-<footer>
+      <div class="card">
 
-  <div class="footer-content">
+        <div class="card-icon">
+          🌿
+        </div>
 
-    <div>
+        <h3>
+          ખાતર વ્યવસ્થાપન
+        </h3>
 
-      <h3>🌾 ખેડૂત મિત્ર</h3>
+        <p>
+          જમીન અને પાક પ્રમાણે ખાતરનો યોગ્ય ઉપયોગ.
+        </p>
 
-      <p>
-        ખેડૂતોનું ડિજિટલ સાથી.
-        ખેતીને સરળ અને માહિતીપૂર્ણ બનાવવા માટેનું પ્લેટફોર્મ.
-      </p>
+      </div>
 
-    </div>
 
-    <div>
+      <div class="card">
 
-      <h3>ઝડપી લિંક્સ</h3>
+        <div class="card-icon">
+          🪴
+        </div>
 
-      <p><a href="#home">હોમ</a></p>
-      <p><a href="#market">બજાર ભાવ</a></p>
-      <p><a href="#guidance">પાક માર્ગદર્શન</a></p>
+        <h3>
+          જમીન સંભાળ
+        </h3>
 
-    </div>
+        <p>
+          જમીનની ગુણવત્તા જાળવવા માટે જરૂરી ખેતી પદ્ધતિઓ.
+        </p>
 
-    <div>
-
-      <h3>માહિતી</h3>
-
-      <p>સરકારી યોજનાઓ</p>
-      <p>કૃષિ સાધનો</p>
-      <p>પશુપાલન</p>
+      </div>
 
     </div>
 
-  </div>
-
-  <div class="copyright">
-
-    © 2026 ખેડૂત મિત્ર | બધા હક્કો સુરક્ષિત
-
-  </div>
-
-</footer>
+  </section>
 
 
-<!-- FIREBASE + JAVASCRIPT -->
-<script type="module">
+  <!-- ================= FOOTER ================= -->
 
-  import { initializeApp }
-    from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+  <footer>
 
-  import {
-    getFirestore,
-    collection,
-    getDocs
-  }
-    from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+    <div class="footer-content">
 
+      <div>
 
-  /* ==============================
-     FIREBASE CONFIG
-  ============================== */
+        <h3>
+          🌾 ખેડૂત મિત્ર
+        </h3>
 
-  const firebaseConfig = {
+        <p>
+          ખેડૂતોનું ડિજિટલ સાથી.
+          ખેતીને સરળ અને માહિતીપૂર્ણ બનાવવા માટેનું પ્લેટફોર્મ.
+        </p>
 
-    apiKey: "AIzaSyCoRcAEmMV0i-WVgnA5uzZjcDzBGtsqcDE",
-
-    authDomain: "khedut-mitra-d6808.firebaseapp.com",
-
-    projectId: "khedut-mitra-d6808",
-
-    storageBucket: "khedut-mitra-d6808.firebasestorage.app",
-
-    messagingSenderId: "368250177516",
-
-    appId: "1:368250177516:web:d23db936f7c5a4e53c62c9",
-
-    measurementId: "G-RZC2MFE0BW"
-
-  };
+      </div>
 
 
-  /* ==============================
-     FIREBASE START
-  ============================== */
+      <div>
 
-  const app = initializeApp(firebaseConfig);
+        <h3>
+          ઝડપી લિંક્સ
+        </h3>
 
-  const db = getFirestore(app);
+        <p>
+          <a href="#home">
+            હોમ
+          </a>
+        </p>
+
+        <p>
+          <a href="#market">
+            બજાર ભાવ
+          </a>
+        </p>
+
+        <p>
+          <a href="#guidance">
+            પાક માર્ગદર્શન
+          </a>
+        </p>
+
+      </div>
 
 
-  /* ==============================
-     PRICE FORMAT
-  ============================== */
+      <div>
 
-  function formatPrice(price) {
+        <h3>
+          માહિતી
+        </h3>
 
-    if (price === undefined || price === null || price === "") {
-      return "—";
+        <p>
+          સરકારી યોજનાઓ
+        </p>
+
+        <p>
+          કૃષિ સાધનો
+        </p>
+
+        <p>
+          પશુપાલન
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+      © 2026 ખેડૂત મિત્ર | બધા હક્કો સુરક્ષિત
+
+    </div>
+
+  </footer>
+
+
+  <!-- ==================================================
+       FIREBASE
+  ================================================== -->
+
+  <script type="module">
+
+    import {
+      initializeApp
+    } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+
+
+    import {
+      getFirestore,
+      collection,
+      getDocs
+    } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+
+    /* ==================================================
+       FIREBASE CONFIG
+    ================================================== */
+
+    const firebaseConfig = {
+
+      apiKey:
+        "AIzaSyCoRcAEmMV0i-WVgnA5uzZjcDzBGtsqcDE",
+
+      authDomain:
+        "khedut-mitra-d6808.firebaseapp.com",
+
+      projectId:
+        "khedut-mitra-d6808",
+
+      storageBucket:
+        "khedut-mitra-d6808.firebasestorage.app",
+
+      messagingSenderId:
+        "368250177516",
+
+      appId:
+        "1:368250177516:web:d23db936f7c5a4e53c62c9",
+
+      measurementId:
+        "G-RZC2MFE0BW"
+
+    };
+
+
+    /* ==================================================
+       START FIREBASE
+    ================================================== */
+
+    const app =
+      initializeApp(firebaseConfig);
+
+
+    const db =
+      getFirestore(app);
+
+
+    console.log(
+      "Firebase connected successfully"
+    );
+
+
+    /* ==================================================
+       FORMAT PRICE
+    ================================================== */
+
+    function formatPrice(value) {
+
+      if (
+        value === null ||
+        value === undefined ||
+        value === ""
+      ) {
+
+        return "—";
+
+      }
+
+
+      const number =
+        Number(value);
+
+
+      if (Number.isNaN(number)) {
+
+        return String(value);
+
+      }
+
+
+      return (
+        "₹" +
+        number.toLocaleString("en-IN")
+      );
+
     }
 
-    const number = Number(price);
 
-    if (isNaN(number)) {
-      return "—";
+    /* ==================================================
+       SAFE VALUE
+    ================================================== */
+
+    function safeValue(value) {
+
+      if (
+        value === null ||
+        value === undefined ||
+        value === ""
+      ) {
+
+        return "—";
+
+      }
+
+      return String(value);
+
     }
 
-    return "₹" + number.toLocaleString("en-IN");
 
-  }
+    /* ==================================================
+       LOAD MARKET PRICES
+    ================================================== */
 
+    async function loadMarketPrices() {
 
-  /* ==============================
-     LOAD MARKET PRICES
-  ============================== */
-
-  async function loadMarketPrices() {
-
-    const loading =
-      document.getElementById("marketLoading");
-
-    const errorBox =
-      document.getElementById("marketError");
-
-    const table =
-      document.getElementById("marketTable");
-
-    const tbody =
-      document.getElementById("marketTableBody");
+      const loading =
+        document.getElementById(
+          "marketLoading"
+        );
 
 
-    try {
+      const errorBox =
+        document.getElementById(
+          "marketError"
+        );
 
-      loading.style.display = "block";
 
-      errorBox.style.display = "none";
+      const info =
+        document.getElementById(
+          "marketInfo"
+        );
 
-      table.style.display = "none";
+
+      const table =
+        document.getElementById(
+          "marketTable"
+        );
+
+
+      const tbody =
+        document.getElementById(
+          "marketTableBody"
+        );
+
+
+      loading.style.display =
+        "block";
+
+
+      errorBox.style.display =
+        "none";
+
+
+      info.style.display =
+        "none";
+
+
+      table.style.display =
+        "none";
+
 
       tbody.innerHTML = "";
 
 
-      const marketRef =
-        collection(db, "marketPrices");
+      try {
+
+        /* ---------------------------------------------
+           GET COLLECTION
+        --------------------------------------------- */
+
+        const pricesRef =
+          collection(
+            db,
+            "marketPrices"
+          );
 
 
-      const snapshot =
-        await getDocs(marketRef);
+        const snapshot =
+          await getDocs(
+            pricesRef
+          );
 
-
-      console.log(
-        "Firebase documents:",
-        snapshot.size
-      );
-
-
-      if (snapshot.empty) {
-
-        loading.style.display = "none";
-
-        errorBox.style.display = "block";
-
-        errorBox.innerHTML =
-          "⚠️ Firebaseમાં <b>marketPrices</b> collectionમાં હજુ કોઈ ભાવ ઉપલબ્ધ નથી.";
-
-        return;
-
-      }
-
-
-      snapshot.forEach((doc) => {
-
-        const data = doc.data();
 
         console.log(
-          "Firebase price:",
-          doc.id,
-          data
+          "Number of Firebase documents:",
+          snapshot.size
         );
 
 
-        const row =
-          document.createElement("tr");
+        /* ---------------------------------------------
+           EMPTY COLLECTION
+        --------------------------------------------- */
+
+        if (
+          snapshot.empty
+        ) {
+
+          loading.style.display =
+            "none";
 
 
-        let status =
-          data.status || "↑ વધારો";
+          errorBox.style.display =
+            "block";
 
 
-        let statusClass =
-          status.includes("↓")
-            ? "down"
-            : "up";
+          errorBox.innerHTML = `
+            ⚠️ Firebaseના
+            <b>marketPrices</b>
+            collectionમાં કોઈ ભાવ મળ્યા નથી.
+            <br><br>
+            Firebaseમાં ઓછામાં ઓછું એક document બનાવો.
+          `;
+
+          return;
+
+        }
 
 
-        row.innerHTML = `
+        /* ---------------------------------------------
+           READ EACH DOCUMENT
+        --------------------------------------------- */
 
-          <td>
-            <strong>
-              ${data.crop || "—"}
-            </strong>
-          </td>
+        snapshot.forEach(
+          (doc) => {
 
-          <td>
-            ${data.market || "—"}
-          </td>
+            const data =
+              doc.data();
 
-          <td class="price">
-            ${formatPrice(data.minPrice)}
-          </td>
 
-          <td class="price">
-            ${formatPrice(data.maxPrice)}
-          </td>
+            console.log(
+              "Document ID:",
+              doc.id
+            );
 
-          <td class="${statusClass}">
-            ${status}
-          </td>
+
+            console.log(
+              "Document data:",
+              data
+            );
+
+
+            /* -----------------------------------------
+               GET VALUES
+            ----------------------------------------- */
+
+            const crop =
+              data.crop ??
+              data.Crop ??
+              data.name ??
+              "—";
+
+
+            const market =
+              data.market ??
+              data.Market ??
+              data.bazaar ??
+              data.bajar ??
+              data.બજાર ??
+              "—";
+
+
+            const minPrice =
+              data.minPrice ??
+              data.minimumPrice ??
+              data.min_price ??
+              data.minimum_price ??
+              data.MinPrice ??
+              data["ન્યૂનતમ ભાવ"] ??
+              null;
+
+
+            const maxPrice =
+              data.maxPrice ??
+              data.maximumPrice ??
+              data.max_price ??
+              data.maximum_price ??
+              data.MaxPrice ??
+              data["મહત્તમ ભાવ"] ??
+              null;
+
+
+            const avgPrice =
+              data.avgPrice ??
+              data.averagePrice ??
+              data.avg_price ??
+              data.average_price ??
+              data.AvgPrice ??
+              data["સરેરાશ ભાવ"] ??
+              null;
+
+
+            const arrival =
+              data.arrival ??
+              data.Arrival ??
+              data.arrivals ??
+              data["આવક"] ??
+              "—";
+
+
+            const status =
+              data.status ??
+              data.Status ??
+              "↑ વધારો";
+
+
+            /* -----------------------------------------
+               STATUS CLASS
+            ----------------------------------------- */
+
+            let statusClass =
+              "up";
+
+
+            if (
+              String(status).includes("↓") ||
+              String(status)
+                .toLowerCase()
+                .includes("ઘટાડ")
+            ) {
+
+              statusClass =
+                "down";
+
+            }
+
+
+            /* -----------------------------------------
+               CREATE ROW
+            ----------------------------------------- */
+
+            const row =
+              document.createElement(
+                "tr"
+              );
+
+
+            row.innerHTML = `
+
+              <td class="crop-name">
+                ${safeValue(crop)}
+              </td>
+
+              <td>
+                ${safeValue(market)}
+              </td>
+
+              <td class="price">
+                ${formatPrice(minPrice)}
+              </td>
+
+              <td class="price">
+                ${formatPrice(maxPrice)}
+              </td>
+
+              <td class="price">
+                ${formatPrice(avgPrice)}
+              </td>
+
+              <td>
+                ${safeValue(arrival)}
+              </td>
+
+              <td class="${statusClass}">
+                ${safeValue(status)}
+              </td>
+
+            `;
+
+
+            tbody.appendChild(
+              row
+            );
+
+          }
+        );
+
+
+        /* ---------------------------------------------
+           SHOW TABLE
+        --------------------------------------------- */
+
+        loading.style.display =
+          "none";
+
+
+        table.style.display =
+          "table";
+
+
+        info.style.display =
+          "block";
+
+
+        info.innerHTML =
+          `✅ Firebaseમાંથી ${snapshot.size} પાકના ભાવ મળ્યા.`;
+
+
+      } catch (error) {
+
+        console.error(
+          "Firebase Error:",
+          error
+        );
+
+
+        loading.style.display =
+          "none";
+
+
+        table.style.display =
+          "none";
+
+
+        errorBox.style.display =
+          "block";
+
+
+        errorBox.innerHTML = `
+
+          ❌ Firebaseમાંથી ભાવ લોડ થઈ શક્યા નથી.
+
+          <br><br>
+
+          <b>Error:</b>
+
+          <br>
+
+          ${safeValue(error.message)}
+
+          <br><br>
+
+          Firebase Firestore Rules અને
+          <b>marketPrices</b>
+          collection ચેક કરો.
 
         `;
 
-
-        tbody.appendChild(row);
-
-      });
-
-
-      loading.style.display = "none";
-
-      table.style.display = "table";
-
-
-    } catch (error) {
-
-      console.error(
-        "Firebase Error:",
-        error
-      );
-
-
-      loading.style.display = "none";
-
-      table.style.display = "none";
-
-      errorBox.style.display = "block";
-
-
-      errorBox.innerHTML = `
-
-        ❌ Firebaseમાંથી ભાવ લોડ થઈ શક્યા નથી.<br><br>
-
-        <small>
-          ${error.message}
-        </small>
-
-      `;
+      }
 
     }
 
-  }
+
+    /* ==================================================
+       LOAD DATA WHEN PAGE OPENS
+    ================================================== */
+
+    loadMarketPrices();
 
 
-  /* ==============================
-     PAGE LOAD
-  ============================== */
+    /* ==================================================
+       SEARCH
+    ================================================== */
 
-  loadMarketPrices();
+    window.searchWebsite =
+      function(event) {
 
-
-  /* ==============================
-     SEARCH
-  ============================== */
-
-  window.searchWebsite =
-    function(event) {
-
-      event.preventDefault();
-
-      const search =
-        document
-          .getElementById("searchInput")
-          .value
-          .trim();
+        event.preventDefault();
 
 
-      if (!search) {
-
-        alert("કૃપા કરીને કંઈક લખીને શોધો.");
-
-        return;
-
-      }
+        const input =
+          document.getElementById(
+            "searchInput"
+          );
 
 
-      alert(
-        `"${search}" માટે શોધ સુવિધા ટૂંક સમયમાં વધુ વિસ્તૃત કરવામાં આવશે.`
+        const search =
+          input.value.trim();
+
+
+        if (!search) {
+
+          alert(
+            "કૃપા કરીને કંઈક લખીને શોધો."
+          );
+
+          return;
+
+        }
+
+
+        alert(
+          `"${search}" માટે શોધ સુવિધા ટૂંક સમયમાં વધુ વિસ્તૃત કરવામાં આવશે.`
+        );
+
+      };
+
+
+    /* ==================================================
+       LOGIN
+    ================================================== */
+
+    window.loginAlert =
+      function() {
+
+        alert(
+          "Login / Register સુવિધા Firebase Authentication સાથે ટૂંક સમયમાં ચાલુ કરવામાં આવશે."
+        );
+
+      };
+
+  </script>
+
+
+  <!-- ==================================================
+       MOBILE MENU
+  ================================================== -->
+
+  <script>
+
+    function toggleMenu() {
+
+      const nav =
+        document.getElementById(
+          "navMenu"
+        );
+
+
+      nav.classList.toggle(
+        "active"
       );
 
-    };
+    }
 
 
-  /* ==============================
-     LOGIN
-  ============================== */
+    document
+      .querySelectorAll(
+        "#navMenu a"
+      )
+      .forEach(
+        function(link) {
 
-  window.loginAlert =
-    function() {
+          link.addEventListener(
+            "click",
+            function() {
 
-      alert(
-        "Login / Register સુવિધા ટૂંક સમયમાં Firebase Authentication સાથે ચાલુ કરવામાં આવશે."
-      );
+              document
+                .getElementById(
+                  "navMenu"
+                )
+                .classList.remove(
+                  "active"
+                );
 
-    };
-
-
-</script>
-
-
-<!-- MENU SCRIPT -->
-<script>
-
-  function toggleMenu() {
-
-    const nav =
-      document.getElementById("navMenu");
-
-    nav.classList.toggle("active");
-
-  }
-
-
-  document
-    .querySelectorAll("#navMenu a")
-    .forEach(function(link) {
-
-      link.addEventListener(
-        "click",
-        function() {
-
-          document
-            .getElementById("navMenu")
-            .classList.remove("active");
+            }
+          );
 
         }
       );
 
-    });
-
-</script>
+  </script>
 
 </body>
 </html>
