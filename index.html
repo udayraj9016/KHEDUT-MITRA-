@@ -7,11 +7,12 @@
 <title>ખેડૂત મિત્ર | ખેડૂતોનું ડિજિટલ સાથી</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
 }
 
 body{
@@ -44,14 +45,14 @@ header{
 
 nav{
     display:flex;
-    gap:20px;
+    gap:18px;
     align-items:center;
 }
 
 nav a{
     color:white;
     text-decoration:none;
-    font-size:15px;
+    font-size:14px;
 }
 
 .login-btn{
@@ -88,6 +89,7 @@ nav a{
     font-size:25px;
     cursor:pointer;
 }
+
 
 /* HERO */
 
@@ -133,6 +135,7 @@ nav a{
     font-weight:bold;
 }
 
+
 /* COMMON */
 
 section{
@@ -172,26 +175,106 @@ section{
     line-height:1.6;
 }
 
+
 /* WEATHER */
 
 .weather{
     background:white;
 }
 
-.weather-box{
+.weather-search{
     max-width:600px;
+    margin:0 auto 25px;
+    display:flex;
+    gap:10px;
+}
+
+.weather-search input{
+    flex:1;
+    padding:13px 16px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    outline:none;
+    font-size:16px;
+}
+
+.weather-search button{
+    padding:13px 20px;
+    border:none;
+    background:#176b38;
+    color:white;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.weather-box{
+    max-width:700px;
     margin:auto;
-    text-align:center;
     padding:30px;
     border-radius:20px;
-    background:#eef8f0;
+    background:linear-gradient(135deg,#e9f8ee,#f7fff9);
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.weather-city{
+    text-align:center;
+    font-size:24px;
+    color:#176b38;
+    font-weight:bold;
+}
+
+.weather-main{
+    text-align:center;
+    margin:20px 0;
+}
+
+.weather-icon{
+    font-size:65px;
 }
 
 .temperature{
-    font-size:45px;
+    font-size:48px;
     font-weight:bold;
     color:#176b38;
 }
+
+.weather-description{
+    font-size:18px;
+    color:#555;
+    margin-top:5px;
+}
+
+.weather-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin-top:25px;
+}
+
+.weather-item{
+    background:white;
+    padding:15px;
+    border-radius:12px;
+    text-align:center;
+}
+
+.weather-item .icon{
+    font-size:25px;
+}
+
+.weather-item strong{
+    display:block;
+    margin-top:5px;
+    color:#176b38;
+}
+
+.weather-status{
+    text-align:center;
+    margin-top:15px;
+    color:#666;
+}
+
 
 /* MARKET */
 
@@ -230,6 +313,7 @@ section{
     padding:20px;
     color:#666;
 }
+
 
 /* LOGIN MODAL */
 
@@ -317,10 +401,6 @@ section{
     outline:none;
 }
 
-.input-group input:focus{
-    border-color:#176b38;
-}
-
 .auth-submit{
     width:100%;
     padding:13px;
@@ -366,6 +446,7 @@ section{
     color:#c62828;
 }
 
+
 /* FOOTER */
 
 footer{
@@ -378,6 +459,7 @@ footer{
 footer p{
     margin:7px;
 }
+
 
 /* MOBILE */
 
@@ -406,6 +488,14 @@ footer p{
         font-size:30px;
     }
 
+    .weather-grid{
+        grid-template-columns:1fr;
+    }
+
+    .weather-search{
+        flex-direction:column;
+    }
+
     .market-table{
         font-size:13px;
     }
@@ -418,11 +508,15 @@ footer p{
     .user-name{
         display:none;
     }
+
 }
+
 </style>
 </head>
 
+
 <body>
+
 
 <!-- HEADER -->
 
@@ -436,116 +530,345 @@ footer p{
     <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
     <nav id="navMenu">
+
         <a href="#home">Home</a>
+
         <a href="#weather">હવામાન</a>
+
         <a href="#market">બજાર ભાવ</a>
+
         <a href="#guidance">પાક માર્ગદર્શન</a>
+
         <a href="#schemes">સરકારી યોજનાઓ</a>
+
         <a href="#equipment">ખેતી સાધનો</a>
+
     </nav>
 
-    <!-- LOGIN -->
 
-    <button class="login-btn" id="loginButton" onclick="openAuthModal()">
+    <button
+        class="login-btn"
+        id="loginButton"
+        onclick="openAuthModal()">
+
         Login / Register
+
     </button>
 
-    <!-- LOGGED IN USER -->
 
-    <div class="user-area" id="userArea">
-        <span class="user-name" id="userName"></span>
-        <button class="logout-btn" onclick="logoutUser()">
+    <div
+        class="user-area"
+        id="userArea">
+
+        <span
+            class="user-name"
+            id="userName">
+        </span>
+
+        <button
+            class="logout-btn"
+            onclick="logoutUser()">
+
             Logout
+
         </button>
+
     </div>
 
 </header>
 
 
+
 <!-- HERO -->
 
-<section class="hero" id="home">
+<section
+    class="hero"
+    id="home">
 
-    <h1>ખેડૂત મિત્રમાં આપનું સ્વાગત છે 🌾</h1>
+    <h1>
+        ખેડૂત મિત્રમાં આપનું સ્વાગત છે 🌾
+    </h1>
 
     <p>
-        ખેડૂતો માટે હવામાન, બજાર ભાવ, પાક માર્ગદર્શન
-        અને સરકારી યોજનાઓ એક જ જગ્યાએ
+        ખેડૂતો માટે હવામાન, બજાર ભાવ,
+        પાક માર્ગદર્શન અને સરકારી યોજનાઓ
+        એક જ જગ્યાએ
     </p>
 
     <div class="search-box">
+
         <input
             type="text"
             id="searchInput"
-            placeholder="શું શોધવું છે?"
-        >
+            placeholder="શું શોધવું છે?">
 
         <button onclick="searchSite()">
             શોધો
         </button>
+
     </div>
 
 </section>
 
 
-<!-- WEATHER -->
 
-<section class="weather" id="weather">
+<!-- LIVE WEATHER -->
+
+<section
+    class="weather"
+    id="weather">
 
     <div class="section-title">
-        <h2>🌤️ આજનું હવામાન</h2>
-    </div>
 
-    <div class="weather-box">
-
-        <h3>બોટાદ</h3>
-
-        <div class="temperature">
-            28°C
-        </div>
-
-        <p>આંશિક વાદળછાયું</p>
+        <h2>
+            🌤️ Live હવામાન
+        </h2>
 
         <p>
-            🌧️ વરસાદ: 20% |
-            💨 પવન: 12 km/h
+            તમારા શહેરનું હાલનું હવામાન
         </p>
 
     </div>
 
+
+    <div class="weather-search">
+
+        <input
+            type="text"
+            id="weatherCity"
+            value="Botad"
+            placeholder="શહેરનું નામ લખો">
+
+        <button
+            onclick="searchWeather()">
+
+            🔍 હવામાન જુઓ
+
+        </button>
+
+    </div>
+
+
+    <div
+        class="weather-box"
+        id="weatherBox">
+
+        <div class="weather-city">
+            Botad
+        </div>
+
+        <div class="weather-main">
+
+            <div
+                class="weather-icon"
+                id="weatherIcon">
+
+                🌤️
+
+            </div>
+
+            <div
+                class="temperature"
+                id="temperature">
+
+                --°C
+
+            </div>
+
+            <div
+                class="weather-description"
+                id="weatherDescription">
+
+                હવામાન લોડ થઈ રહ્યું છે...
+
+            </div>
+
+        </div>
+
+
+        <div class="weather-grid">
+
+
+            <div class="weather-item">
+
+                <div class="icon">
+                    💧
+                </div>
+
+                ભેજ
+
+                <strong
+                    id="humidity">
+
+                    --
+
+                </strong>
+
+            </div>
+
+
+            <div class="weather-item">
+
+                <div class="icon">
+                    🌧️
+                </div>
+
+                વરસાદની શક્યતા
+
+                <strong
+                    id="rainChance">
+
+                    --
+
+                </strong>
+
+            </div>
+
+
+            <div class="weather-item">
+
+                <div class="icon">
+                    💨
+                </div>
+
+                પવન
+
+                <strong
+                    id="wind">
+
+                    --
+
+                </strong>
+
+            </div>
+
+
+            <div class="weather-item">
+
+                <div class="icon">
+                    🌡️
+                </div>
+
+                અનુભવાતું તાપમાન
+
+                <strong
+                    id="feelsLike">
+
+                    --
+
+                </strong>
+
+            </div>
+
+
+            <div class="weather-item">
+
+                <div class="icon">
+                    🌧️
+                </div>
+
+                વરસાદ
+
+                <strong
+                    id="rain">
+
+                    --
+
+                </strong>
+
+            </div>
+
+
+            <div class="weather-item">
+
+                <div class="icon">
+                    ☁️
+                </div>
+
+                વાદળો
+
+                <strong
+                    id="cloud">
+
+                    --
+
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+        <div
+            class="weather-status"
+            id="weatherStatus">
+
+            Weather data loading...
+
+        </div>
+
+    </div>
+
 </section>
 
 
-<!-- MARKET PRICE -->
+
+<!-- MARKET -->
 
 <section id="market">
 
     <div class="section-title">
-        <h2>📈 આજના બજાર ભાવ</h2>
-        <p>Firebaseમાંથી લાઇવ ડેટા</p>
+
+        <h2>
+            📈 આજના બજાર ભાવ
+        </h2>
+
+        <p>
+            Firebaseમાંથી લાઇવ ડેટા
+        </p>
+
     </div>
 
-    <div id="marketLoading" class="loading">
+
+    <div
+        id="marketLoading"
+        class="loading">
+
         બજાર ભાવ લોડ થઈ રહ્યા છે...
+
     </div>
+
 
     <div style="overflow-x:auto;">
 
         <table class="market-table">
 
             <thead>
+
                 <tr>
+
                     <th>પાક</th>
+
                     <th>બજાર</th>
+
                     <th>ન્યૂનતમ ભાવ</th>
+
                     <th>મહત્તમ ભાવ</th>
+
                     <th>સરેરાશ ભાવ</th>
+
                     <th>આવક</th>
+
                     <th>સ્થિતિ</th>
+
                 </tr>
+
             </thead>
 
-            <tbody id="marketTableBody">
+
+            <tbody
+                id="marketTableBody">
             </tbody>
 
         </table>
@@ -555,46 +878,76 @@ footer p{
 </section>
 
 
-<!-- CROP GUIDANCE -->
+
+<!-- GUIDANCE -->
 
 <section id="guidance">
 
     <div class="section-title">
-        <h2>🌱 પાક માર્ગદર્શન</h2>
+
+        <h2>
+            🌱 પાક માર્ગદર્શન
+        </h2>
+
     </div>
+
 
     <div class="cards">
 
+
         <div class="card">
-            <h3>🌾 ઘઉં</h3>
+
+            <h3>
+                🌾 ઘઉં
+            </h3>
+
             <p>
                 ઘઉંની વાવણી, ખાતર, સિંચાઈ
                 અને રોગ નિયંત્રણ અંગે માહિતી.
             </p>
+
         </div>
 
+
         <div class="card">
-            <h3>🥜 મગફળી</h3>
+
+            <h3>
+                🥜 મગફળી
+            </h3>
+
             <p>
                 મગફળીમાં યોગ્ય બીજ, ખાતર,
                 પાણી અને રોગ નિયંત્રણ.
             </p>
+
         </div>
 
+
         <div class="card">
-            <h3>🌿 કપાસ</h3>
+
+            <h3>
+                🌿 કપાસ
+            </h3>
+
             <p>
                 કપાસ માટે વાવણીથી લઈને
                 પાક સંરક્ષણ સુધીનું માર્ગદર્શન.
             </p>
+
         </div>
 
+
         <div class="card">
-            <h3>🌿 જીરું</h3>
+
+            <h3>
+                🌿 જીરું
+            </h3>
+
             <p>
                 જીરુંના પાકમાં સિંચાઈ,
                 ખાતર અને રોગ નિયંત્રણ.
             </p>
+
         </div>
 
     </div>
@@ -602,43 +955,68 @@ footer p{
 </section>
 
 
-<!-- GOVERNMENT SCHEMES -->
+
+<!-- SCHEMES -->
 
 <section id="schemes">
 
     <div class="section-title">
-        <h2>🏛️ સરકારી યોજનાઓ</h2>
+
+        <h2>
+            🏛️ સરકારી યોજનાઓ
+        </h2>
+
     </div>
+
 
     <div class="cards">
 
+
         <div class="card">
-            <h3>PM-KISAN</h3>
+
+            <h3>
+                PM-KISAN
+            </h3>
+
             <p>
                 ખેડૂતો માટે કેન્દ્ર સરકારની
                 આવક સહાય યોજના.
             </p>
+
         </div>
 
+
         <div class="card">
-            <h3>પાક વીમા યોજના</h3>
+
+            <h3>
+                પાક વીમા યોજના
+            </h3>
+
             <p>
                 કુદરતી આફત અને પાક નુકસાન
                 સામે વીમા સુરક્ષા.
             </p>
+
         </div>
 
+
         <div class="card">
-            <h3>કિસાન ક્રેડિટ કાર્ડ</h3>
+
+            <h3>
+                કિસાન ક્રેડિટ કાર્ડ
+            </h3>
+
             <p>
                 ખેતી માટે નાણાકીય સહાય
                 મેળવવાની સુવિધા.
             </p>
+
         </div>
 
     </div>
 
 </section>
+
 
 
 <!-- EQUIPMENT -->
@@ -646,33 +1024,56 @@ footer p{
 <section id="equipment">
 
     <div class="section-title">
-        <h2>🚜 ખેતી સાધનો</h2>
+
+        <h2>
+            🚜 ખેતી સાધનો
+        </h2>
+
     </div>
+
 
     <div class="cards">
 
+
         <div class="card">
-            <h3>🚜 ટ્રેક્ટર</h3>
+
+            <h3>
+                🚜 ટ્રેક્ટર
+            </h3>
+
             <p>
                 વિવિધ પ્રકારના ટ્રેક્ટર
                 અને ખેતીના ઉપયોગની માહિતી.
             </p>
+
         </div>
 
+
         <div class="card">
-            <h3>💧 પાણી પંપ</h3>
+
+            <h3>
+                💧 પાણી પંપ
+            </h3>
+
             <p>
                 સિંચાઈ માટે ઉપયોગી
                 પાણી પંપની માહિતી.
             </p>
+
         </div>
 
+
         <div class="card">
-            <h3>🌱 ખેતી મશીનરી</h3>
+
+            <h3>
+                🌱 ખેતી મશીનરી
+            </h3>
+
             <p>
                 વાવણી, કાપણી અને અન્ય
                 ખેતી કામ માટેના સાધનો.
             </p>
+
         </div>
 
     </div>
@@ -680,11 +1081,14 @@ footer p{
 </section>
 
 
+
 <!-- FOOTER -->
 
 <footer>
 
-    <h2>🌾 ખેડૂત મિત્ર</h2>
+    <h2>
+        🌾 ખેડૂત મિત્ર
+    </h2>
 
     <p>
         ખેડૂતોનું ડિજિટલ સાથી
@@ -697,72 +1101,86 @@ footer p{
 </footer>
 
 
+
 <!-- AUTH MODAL -->
 
-<div class="modal" id="authModal">
+<div
+    class="modal"
+    id="authModal">
 
     <div class="modal-box">
 
-        <span class="close" onclick="closeAuthModal()">×</span>
+        <span
+            class="close"
+            onclick="closeAuthModal()">
+
+            ×
+
+        </span>
+
 
         <h2 class="modal-title">
             🌾 ખેડૂત મિત્ર
         </h2>
 
-        <!-- TABS -->
 
         <div class="auth-tabs">
 
             <button
                 class="auth-tab active"
                 id="loginTab"
-                onclick="showLoginForm()"
-            >
+                onclick="showLoginForm()">
+
                 Login
+
             </button>
+
 
             <button
                 class="auth-tab"
                 id="registerTab"
-                onclick="showRegisterForm()"
-            >
+                onclick="showRegisterForm()">
+
                 Register
+
             </button>
 
         </div>
 
 
-        <!-- LOGIN FORM -->
+
+        <!-- LOGIN -->
 
         <form
             id="loginForm"
-            class="auth-form active"
-        >
+            class="auth-form active">
 
             <div class="input-group">
 
-                <label>Email</label>
+                <label>
+                    Email
+                </label>
 
                 <input
                     type="email"
                     id="loginEmail"
                     placeholder="તમારો Email"
-                    required
-                >
+                    required>
 
             </div>
 
 
             <div class="input-group">
 
-                <label>Password</label>
+                <label>
+                    Password
+                </label>
 
                 <input
                     type="password"
                     id="loginPassword"
                     placeholder="તમારો Password"
-                    required
-                >
+                    required>
 
             </div>
 
@@ -771,9 +1189,10 @@ footer p{
 
                 <button
                     type="button"
-                    onclick="forgotPassword()"
-                >
+                    onclick="forgotPassword()">
+
                     Password ભૂલી ગયા?
+
                 </button>
 
             </div>
@@ -781,84 +1200,90 @@ footer p{
 
             <button
                 type="submit"
-                class="auth-submit"
-            >
+                class="auth-submit">
+
                 Login કરો
+
             </button>
 
         </form>
 
 
-        <!-- REGISTER FORM -->
+
+        <!-- REGISTER -->
 
         <form
             id="registerForm"
-            class="auth-form"
-        >
+            class="auth-form">
 
             <div class="input-group">
 
-                <label>તમારું નામ</label>
+                <label>
+                    તમારું નામ
+                </label>
 
                 <input
                     type="text"
                     id="registerName"
                     placeholder="તમારું નામ"
-                    required
-                >
+                    required>
 
             </div>
 
 
             <div class="input-group">
 
-                <label>Email</label>
+                <label>
+                    Email
+                </label>
 
                 <input
                     type="email"
                     id="registerEmail"
                     placeholder="તમારો Email"
-                    required
-                >
+                    required>
 
             </div>
 
 
             <div class="input-group">
 
-                <label>Password</label>
+                <label>
+                    Password
+                </label>
 
                 <input
                     type="password"
                     id="registerPassword"
                     placeholder="ઓછામાં ઓછા 6 અક્ષર"
                     minlength="6"
-                    required
-                >
+                    required>
 
             </div>
 
 
             <div class="input-group">
 
-                <label>Password ફરી લખો</label>
+                <label>
+                    Password ફરી લખો
+                </label>
 
                 <input
                     type="password"
                     id="registerPassword2"
                     placeholder="Password ફરી લખો"
                     minlength="6"
-                    required
-                >
+                    required>
 
             </div>
 
 
             <button
                 type="submit"
-                class="auth-submit"
-            >
+                class="auth-submit">
+
                 Account બનાવો
+
             </button>
 
         </form>
@@ -866,27 +1291,39 @@ footer p{
 
         <div
             id="authMessage"
-            class="auth-message"
-        ></div>
+            class="auth-message">
+        </div>
 
     </div>
 
 </div>
 
 
-<!-- FIREBASE -->
+
+<!-- FIREBASE + WEATHER SCRIPT -->
 
 <script type="module">
 
-import { initializeApp }
-from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+
+/* =====================================
+   FIREBASE IMPORT
+===================================== */
+
+import {
+    initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+
 
 import {
     getFirestore,
     collection,
     getDocs
 }
-from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+from
+"https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
 
 import {
     getAuth,
@@ -897,12 +1334,14 @@ import {
     sendPasswordResetEmail,
     updateProfile
 }
-from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+from
+"https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
 
 
-/* =========================
+
+/* =====================================
    FIREBASE CONFIG
-========================= */
+===================================== */
 
 const firebaseConfig = {
 
@@ -929,37 +1368,580 @@ const firebaseConfig = {
 };
 
 
-/* =========================
-   INITIALIZE FIREBASE
-========================= */
 
-const app = initializeApp(firebaseConfig);
-
-const db = getFirestore(app);
-
-const auth = getAuth(app);
+const app =
+    initializeApp(firebaseConfig);
 
 
-/* =========================
-   MARKET PRICE
-========================= */
+const db =
+    getFirestore(app);
+
+
+const auth =
+    getAuth(app);
+
+
+
+/* =====================================
+   LIVE WEATHER
+===================================== */
+
+async function searchWeather(){
+
+    const cityInput =
+        document.getElementById(
+            "weatherCity"
+        );
+
+
+    const city =
+        cityInput.value.trim();
+
+
+    if(!city){
+
+        alert(
+            "કૃપા કરીને શહેરનું નામ લખો."
+        );
+
+        return;
+
+    }
+
+
+    const description =
+        document.getElementById(
+            "weatherDescription"
+        );
+
+
+    const status =
+        document.getElementById(
+            "weatherStatus"
+        );
+
+
+    description.textContent =
+        "હવામાન શોધી રહ્યા છીએ...";
+
+
+    status.textContent =
+        "Live weather data લોડ થઈ રહ્યો છે...";
+
+
+    try{
+
+
+        /* -------------------------------
+           STEP 1
+           CITY → LAT/LON
+        -------------------------------- */
+
+        const geoURL =
+            "https://geocoding-api.open-meteo.com/v1/search" +
+            "?name=" +
+            encodeURIComponent(city) +
+            "&count=1" +
+            "&language=gu" +
+            "&format=json";
+
+
+        const geoResponse =
+            await fetch(geoURL);
+
+
+        if(!geoResponse.ok){
+
+            throw new Error(
+                "Location search failed"
+            );
+
+        }
+
+
+        const geoData =
+            await geoResponse.json();
+
+
+        if(
+            !geoData.results ||
+            geoData.results.length === 0
+        ){
+
+            throw new Error(
+                "CITY_NOT_FOUND"
+            );
+
+        }
+
+
+        const location =
+            geoData.results[0];
+
+
+        const latitude =
+            location.latitude;
+
+
+        const longitude =
+            location.longitude;
+
+
+        const cityName =
+            location.name ||
+            city;
+
+
+        const stateName =
+            location.admin1 ||
+            "";
+
+
+        const countryName =
+            location.country ||
+            "";
+
+
+
+        /* -------------------------------
+           STEP 2
+           GET WEATHER
+        -------------------------------- */
+
+        const weatherURL =
+            "https://api.open-meteo.com/v1/forecast" +
+
+            "?latitude=" +
+            latitude +
+
+            "&longitude=" +
+            longitude +
+
+            "&current=" +
+            "temperature_2m," +
+            "relative_humidity_2m," +
+            "apparent_temperature," +
+            "precipitation," +
+            "rain," +
+            "weather_code," +
+            "cloud_cover," +
+            "wind_speed_10m" +
+
+            "&hourly=" +
+            "precipitation_probability" +
+
+            "&forecast_days=1" +
+
+            "&timezone=auto";
+
+
+        const weatherResponse =
+            await fetch(weatherURL);
+
+
+        if(!weatherResponse.ok){
+
+            throw new Error(
+                "Weather API failed"
+            );
+
+        }
+
+
+        const weather =
+            await weatherResponse.json();
+
+
+        const current =
+            weather.current;
+
+
+        const hourly =
+            weather.hourly;
+
+
+        /* --------------------------------
+           RAIN PROBABILITY
+        --------------------------------- */
+
+        let rainChance = 0;
+
+
+        if(
+            hourly &&
+            hourly.precipitation_probability
+        ){
+
+            const currentTime =
+                current.time;
+
+
+            const index =
+                hourly.time.indexOf(
+                    currentTime
+                );
+
+
+            if(index >= 0){
+
+                rainChance =
+                    hourly
+                    .precipitation_probability[index];
+
+            }
+            else{
+
+                rainChance =
+                    hourly
+                    .precipitation_probability[0];
+
+            }
+
+        }
+
+
+
+        /* --------------------------------
+           UPDATE CITY
+        --------------------------------- */
+
+        document
+        .querySelector(".weather-city")
+        .textContent =
+            "📍 " +
+            cityName +
+            (
+                stateName
+                ? ", " + stateName
+                : ""
+            );
+
+
+
+        /* --------------------------------
+           TEMPERATURE
+        --------------------------------- */
+
+        document
+        .getElementById("temperature")
+        .textContent =
+            Math.round(
+                current.temperature_2m
+            ) +
+            "°C";
+
+
+
+        /* --------------------------------
+           FEELS LIKE
+        -------------------------------- */
+
+        document
+        .getElementById("feelsLike")
+        .textContent =
+            Math.round(
+                current.apparent_temperature
+            ) +
+            "°C";
+
+
+
+        /* --------------------------------
+           HUMIDITY
+        -------------------------------- */
+
+        document
+        .getElementById("humidity")
+        .textContent =
+            Math.round(
+                current.relative_humidity_2m
+            ) +
+            "%";
+
+
+
+        /* --------------------------------
+           RAIN CHANCE
+        -------------------------------- */
+
+        document
+        .getElementById("rainChance")
+        .textContent =
+            Math.round(
+                rainChance
+            ) +
+            "%";
+
+
+
+        /* --------------------------------
+           WIND
+        -------------------------------- */
+
+        document
+        .getElementById("wind")
+        .textContent =
+            Math.round(
+                current.wind_speed_10m
+            ) +
+            " km/h";
+
+
+
+        /* --------------------------------
+           RAIN
+        -------------------------------- */
+
+        document
+        .getElementById("rain")
+        .textContent =
+            Number(
+                current.precipitation || 0
+            ).toFixed(1) +
+            " mm";
+
+
+
+        /* --------------------------------
+           CLOUD
+        -------------------------------- */
+
+        document
+        .getElementById("cloud")
+        .textContent =
+            Math.round(
+                current.cloud_cover
+            ) +
+            "%";
+
+
+
+        /* --------------------------------
+           WEATHER CODE
+        -------------------------------- */
+
+        const weatherInfo =
+            getWeatherInfo(
+                current.weather_code
+            );
+
+
+        document
+        .getElementById("weatherIcon")
+        .textContent =
+            weatherInfo.icon;
+
+
+        description.textContent =
+            weatherInfo.text;
+
+
+
+        status.textContent =
+            "🌍 " +
+            cityName +
+            " | " +
+            countryName +
+            " | Live weather";
+
+    }
+    catch(error){
+
+        console.error(
+            "Weather error:",
+            error
+        );
+
+
+        if(
+            error.message ===
+            "CITY_NOT_FOUND"
+        ){
+
+            description.textContent =
+                "શહેર મળ્યું નથી.";
+
+
+            status.textContent =
+                "બીજા શહેરનું નામ અજમાવો.";
+
+        }
+        else{
+
+            description.textContent =
+                "હવામાન લોડ થઈ શક્યું નથી.";
+
+
+            status.textContent =
+                "Internet connection અથવા Weather API ચેક કરો.";
+
+        }
+
+    }
+
+}
+
+
+
+/* =====================================
+   WEATHER CODE → GUJARATI
+===================================== */
+
+function getWeatherInfo(code){
+
+    const data = {
+
+        0:{
+            icon:"☀️",
+            text:"આકાશ સ્વચ્છ"
+        },
+
+        1:{
+            icon:"🌤️",
+            text:"મુખ્યત્વે સ્વચ્છ"
+        },
+
+        2:{
+            icon:"⛅",
+            text:"આંશિક વાદળછાયું"
+        },
+
+        3:{
+            icon:"☁️",
+            text:"વાદળછાયું"
+        },
+
+        45:{
+            icon:"🌫️",
+            text:"ધુમ્મસ"
+        },
+
+        48:{
+            icon:"🌫️",
+            text:"ધુમ્મસ"
+        },
+
+        51:{
+            icon:"🌦️",
+            text:"હળવો ઝરમર વરસાદ"
+        },
+
+        53:{
+            icon:"🌦️",
+            text:"ઝરમર વરસાદ"
+        },
+
+        55:{
+            icon:"🌧️",
+            text:"ભારે ઝરમર વરસાદ"
+        },
+
+        61:{
+            icon:"🌦️",
+            text:"હળવો વરસાદ"
+        },
+
+        63:{
+            icon:"🌧️",
+            text:"વરસાદ"
+        },
+
+        65:{
+            icon:"🌧️",
+            text:"ભારે વરસાદ"
+        },
+
+        71:{
+            icon:"🌨️",
+            text:"હળવો હિમવર્ષા"
+        },
+
+        73:{
+            icon:"🌨️",
+            text:"હિમવર્ષા"
+        },
+
+        75:{
+            icon:"❄️",
+            text:"ભારે હિમવર્ષા"
+        },
+
+        80:{
+            icon:"🌦️",
+            text:"વરસાદના ઝાપટા"
+        },
+
+        81:{
+            icon:"🌧️",
+            text:"વરસાદના ઝાપટા"
+        },
+
+        82:{
+            icon:"⛈️",
+            text:"ભારે વરસાદના ઝાપટા"
+        },
+
+        95:{
+            icon:"⛈️",
+            text:"વાવાઝોડું"
+        },
+
+        96:{
+            icon:"⛈️",
+            text:"ગાજવીજ સાથે વરસાદ"
+        },
+
+        99:{
+            icon:"⛈️",
+            text:"ગાજવીજ સાથે ભારે વરસાદ"
+        }
+
+    };
+
+
+    return data[code] || {
+
+        icon:"🌤️",
+
+        text:"હવામાનની માહિતી"
+
+    };
+
+}
+
+
+
+/* =====================================
+   MARKET PRICES
+===================================== */
 
 async function loadMarketPrices(){
 
     const loading =
-        document.getElementById("marketLoading");
+        document.getElementById(
+            "marketLoading"
+        );
+
 
     const tbody =
-        document.getElementById("marketTableBody");
+        document.getElementById(
+            "marketTableBody"
+        );
+
 
     try{
 
         const snapshot =
             await getDocs(
-                collection(db, "marketPrices")
+                collection(
+                    db,
+                    "marketPrices"
+                )
             );
 
+
         tbody.innerHTML = "";
+
 
         if(snapshot.empty){
 
@@ -967,18 +1949,14 @@ async function loadMarketPrices(){
                 "હાલ કોઈ બજાર ભાવ ઉપલબ્ધ નથી.";
 
             return;
+
         }
 
 
         snapshot.forEach((doc)=>{
 
-            const data = doc.data();
-
-            console.log(
-                "Market document:",
-                doc.id,
-                data
-            );
+            const data =
+                doc.data();
 
 
             const crop =
@@ -1048,12 +2026,17 @@ async function loadMarketPrices(){
                 ){
 
                     status =
-                        `<span class="price-up">↑ વધારો</span>`;
+                        `<span class="price-up">
+                            ↑ વધારો
+                        </span>`;
 
-                }else{
+                }
+                else{
 
                     status =
-                        `<span class="price-down">↓ ઘટાડો</span>`;
+                        `<span class="price-down">
+                            ↓ ઘટાડો
+                        </span>`;
 
                 }
 
@@ -1067,7 +2050,9 @@ async function loadMarketPrices(){
             row.innerHTML = `
 
                 <td>
-                    <strong>${crop}</strong>
+                    <strong>
+                        ${crop}
+                    </strong>
                 </td>
 
                 <td>
@@ -1102,7 +2087,8 @@ async function loadMarketPrices(){
         });
 
 
-        loading.style.display = "none";
+        loading.style.display =
+            "none";
 
     }
     catch(error){
@@ -1112,6 +2098,7 @@ async function loadMarketPrices(){
             error
         );
 
+
         loading.innerHTML =
             "Firebaseમાંથી ભાવ લોડ થઈ શક્યા નથી.";
 
@@ -1120,9 +2107,10 @@ async function loadMarketPrices(){
 }
 
 
-/* =========================
+
+/* =====================================
    NUMBER FORMAT
-========================= */
+===================================== */
 
 function formatNumber(value){
 
@@ -1136,25 +2124,29 @@ function formatNumber(value){
 
     }
 
+
     const number =
         Number(value);
 
-    if(
-        !Number.isNaN(number)
-    ){
 
-        return number.toLocaleString("en-IN");
+    if(!Number.isNaN(number)){
+
+        return number.toLocaleString(
+            "en-IN"
+        );
 
     }
+
 
     return value;
 
 }
 
 
-/* =========================
+
+/* =====================================
    LOGIN
-========================= */
+===================================== */
 
 document
 .getElementById("loginForm")
@@ -1209,8 +2201,11 @@ document
 
             console.error(error);
 
+
             showMessage(
-                getAuthError(error.code),
+                getAuthError(
+                    error.code
+                ),
                 "error"
             );
 
@@ -1220,9 +2215,10 @@ document
 );
 
 
-/* =========================
+
+/* =====================================
    REGISTER
-========================= */
+===================================== */
 
 document
 .getElementById("registerForm")
@@ -1263,18 +2259,6 @@ document
 
             showMessage(
                 "બંને Password સરખા નથી.",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        if(password.length < 6){
-
-            showMessage(
-                "Password ઓછામાં ઓછો 6 અક્ષરનો હોવો જોઈએ.",
                 "error"
             );
 
@@ -1327,8 +2311,11 @@ document
 
             console.error(error);
 
+
             showMessage(
-                getAuthError(error.code),
+                getAuthError(
+                    error.code
+                ),
                 "error"
             );
 
@@ -1338,9 +2325,10 @@ document
 );
 
 
-/* =========================
+
+/* =====================================
    FORGOT PASSWORD
-========================= */
+===================================== */
 
 window.forgotPassword =
 async function(){
@@ -1380,10 +2368,10 @@ async function(){
     }
     catch(error){
 
-        console.error(error);
-
         showMessage(
-            getAuthError(error.code),
+            getAuthError(
+                error.code
+            ),
             "error"
         );
 
@@ -1392,9 +2380,10 @@ async function(){
 };
 
 
-/* =========================
+
+/* =====================================
    LOGOUT
-========================= */
+===================================== */
 
 window.logoutUser =
 async function(){
@@ -1417,9 +2406,10 @@ async function(){
 };
 
 
-/* =========================
+
+/* =====================================
    AUTH STATE
-========================= */
+===================================== */
 
 onAuthStateChanged(
     auth,
@@ -1430,10 +2420,12 @@ onAuthStateChanged(
                 "loginButton"
             );
 
+
         const userArea =
             document.getElementById(
                 "userArea"
             );
+
 
         const userName =
             document.getElementById(
@@ -1446,23 +2438,24 @@ onAuthStateChanged(
             loginButton.style.display =
                 "none";
 
+
             userArea.style.display =
                 "flex";
 
 
-            const displayName =
-                user.displayName ||
-                user.email;
-
-
             userName.textContent =
-                "👤 " + displayName;
+                "👤 " +
+                (
+                    user.displayName ||
+                    user.email
+                );
 
         }
         else{
 
             loginButton.style.display =
                 "block";
+
 
             userArea.style.display =
                 "none";
@@ -1473,9 +2466,10 @@ onAuthStateChanged(
 );
 
 
-/* =========================
-   AUTH ERROR MESSAGE
-========================= */
+
+/* =====================================
+   AUTH ERROR
+===================================== */
 
 function getAuthError(code){
 
@@ -1513,9 +2507,10 @@ function getAuthError(code){
 }
 
 
-/* =========================
-   MESSAGE
-========================= */
+
+/* =====================================
+   AUTH MESSAGE
+===================================== */
 
 function showMessage(
     message,
@@ -1533,14 +2528,34 @@ function showMessage(
 
 
     box.className =
-        "auth-message " + type;
+        "auth-message " +
+        type;
 
 }
 
 
-/* =========================
+
+function clearMessage(){
+
+    const box =
+        document.getElementById(
+            "authMessage"
+        );
+
+
+    box.textContent = "";
+
+
+    box.className =
+        "auth-message";
+
+}
+
+
+
+/* =====================================
    MODAL
-========================= */
+===================================== */
 
 window.openAuthModal =
 function(){
@@ -1570,25 +2585,10 @@ function(){
 };
 
 
-function clearMessage(){
 
-    const box =
-        document.getElementById(
-            "authMessage"
-        );
-
-
-    box.textContent = "";
-
-    box.className =
-        "auth-message";
-
-}
-
-
-/* =========================
-   LOGIN / REGISTER TABS
-========================= */
+/* =====================================
+   AUTH TABS
+===================================== */
 
 window.showLoginForm =
 function(){
@@ -1616,10 +2616,8 @@ function(){
     .classList
     .remove("active");
 
-
-    clearMessage();
-
 };
+
 
 
 window.showRegisterForm =
@@ -1648,15 +2646,13 @@ function(){
     .classList
     .remove("active");
 
-
-    clearMessage();
-
 };
 
 
-/* =========================
+
+/* =====================================
    SEARCH
-========================= */
+===================================== */
 
 window.searchSite =
 function(){
@@ -1686,9 +2682,10 @@ function(){
 };
 
 
-/* =========================
+
+/* =====================================
    MOBILE MENU
-========================= */
+===================================== */
 
 window.toggleMenu =
 function(){
@@ -1701,11 +2698,24 @@ function(){
 };
 
 
-/* =========================
-   LOAD MARKET PRICES
-========================= */
+
+/* =====================================
+   MAKE WEATHER FUNCTION AVAILABLE
+===================================== */
+
+window.searchWeather =
+    searchWeather;
+
+
+
+/* =====================================
+   START
+===================================== */
 
 loadMarketPrices();
+
+searchWeather();
+
 
 </script>
 
